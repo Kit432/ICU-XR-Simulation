@@ -69,7 +69,11 @@ namespace ICUSimulation.Scenarios
             return changed;
         }
 
-        public void ApplyEffects(IEnumerable<ScenarioEffect> effects, ScenarioState state, string sourceId = null)
+        public void ApplyEffects(
+            IEnumerable<ScenarioEffect> effects,
+            ScenarioState state,
+            string sourceId = null,
+            bool isActive = true)
         {
             if (effects == null)
             {
@@ -87,7 +91,7 @@ namespace ICUSimulation.Scenarios
                 switch (effect.Type.Trim().ToLowerInvariant())
                 {
                     case "ui_toast":
-                        if (!string.IsNullOrWhiteSpace(effect.Message))
+                        if (isActive && !string.IsNullOrWhiteSpace(effect.Message))
                         {
                             FeedbackRequested?.Invoke(new ScenarioFeedbackRequest(
                                 effect.Message,
@@ -101,7 +105,8 @@ namespace ICUSimulation.Scenarios
                             effect.Type,
                             effect.Target,
                             effect.State,
-                            sourceId));
+                            sourceId,
+                            isActive));
                         break;
 
                     default:

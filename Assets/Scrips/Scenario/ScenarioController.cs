@@ -22,6 +22,7 @@ namespace ICUSimulation.Scenarios
         public event Action<ScenarioFlagChangedEvent> FlagChanged;
         public event Action<ScenarioTimeoutEvent> TimeoutTriggered;
         public event Action<ScenarioGlobalRuleEvent> GlobalRuleActivated;
+        public event Action<ScenarioGlobalRuleEvent> GlobalRuleDeactivated;
         public event Action<ScenarioGateEvent> GateBlocked;
         public event Action<ScenarioGateEvent> GatePassed;
         public event Action<ScenarioState> ScenarioCompleted;
@@ -178,6 +179,7 @@ namespace ICUSimulation.Scenarios
             activeRunner.FlagChanged += ForwardFlagChanged;
             activeRunner.TimeoutTriggered += ForwardTimeoutTriggered;
             activeRunner.GlobalRuleActivated += ForwardGlobalRuleActivated;
+            activeRunner.GlobalRuleDeactivated += ForwardGlobalRuleDeactivated;
             activeRunner.GateBlocked += ForwardGateBlocked;
             activeRunner.GatePassed += ForwardGatePassed;
             activeRunner.ScenarioCompleted += ForwardScenarioCompleted;
@@ -197,6 +199,7 @@ namespace ICUSimulation.Scenarios
             activeRunner.FlagChanged -= ForwardFlagChanged;
             activeRunner.TimeoutTriggered -= ForwardTimeoutTriggered;
             activeRunner.GlobalRuleActivated -= ForwardGlobalRuleActivated;
+            activeRunner.GlobalRuleDeactivated -= ForwardGlobalRuleDeactivated;
             activeRunner.GateBlocked -= ForwardGateBlocked;
             activeRunner.GatePassed -= ForwardGatePassed;
             activeRunner.ScenarioCompleted -= ForwardScenarioCompleted;
@@ -214,6 +217,7 @@ namespace ICUSimulation.Scenarios
         private void ForwardFlagChanged(ScenarioFlagChangedEvent change) => FlagChanged?.Invoke(change);
         private void ForwardTimeoutTriggered(ScenarioTimeoutEvent timeout) => TimeoutTriggered?.Invoke(timeout);
         private void ForwardGlobalRuleActivated(ScenarioGlobalRuleEvent rule) => GlobalRuleActivated?.Invoke(rule);
+        private void ForwardGlobalRuleDeactivated(ScenarioGlobalRuleEvent rule) => GlobalRuleDeactivated?.Invoke(rule);
         private void ForwardGateBlocked(ScenarioGateEvent gate) => GateBlocked?.Invoke(gate);
         private void ForwardGatePassed(ScenarioGateEvent gate) => GatePassed?.Invoke(gate);
         private void ForwardScenarioCompleted(ScenarioState state) => ScenarioCompleted?.Invoke(state);

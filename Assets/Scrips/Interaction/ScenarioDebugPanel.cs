@@ -30,6 +30,7 @@ public sealed class ScenarioDebugPanel : MonoBehaviour
         EnsureRuntimeComponent<ScenarioHotspotCoordinator>();
         EnsureRuntimeComponent<FeedbackController>();
         EnsureRuntimeComponent<ScenarioHudController>();
+        EnsureRuntimeComponent<ClinicalPresentationCoordinator>();
 
         scenarioController.AvailableScenariosChanged += RefreshScenarioList;
         scenarioController.StateChanged += DisplayState;
