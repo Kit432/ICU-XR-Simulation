@@ -599,8 +599,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad95ccff298a01f478453edd89bc15f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Hotspot
+  hotspotId: hs_ventilator
   hotspotName: Ventilator
   interactionPanel: {fileID: 0}
+  interactionMessage: Ventilator controls - coming in Phase 4
 --- !u!1 &235647132
 GameObject:
   m_ObjectHideFlags: 0
@@ -863,8 +865,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad95ccff298a01f478453edd89bc15f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Hotspot
+  hotspotId: hs_patient
   hotspotName: Bed
   interactionPanel: {fileID: 580997246}
+  interactionMessage:
 --- !u!1001 &345420669
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -879,17 +883,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8762286023885395322, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}
       propertyPath: m_LocalPosition.x
-<<<<<<< Updated upstream
-      value: -0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 8762286023885395322, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.415
-      objectReference: {fileID: 0}
-    - target: {fileID: 8762286023885395322, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -2.88
-=======
       value: 2.68
       objectReference: {fileID: 0}
     - target: {fileID: 8762286023885395322, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}
@@ -899,7 +892,6 @@ PrefabInstance:
     - target: {fileID: 8762286023885395322, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}
       propertyPath: m_LocalPosition.z
       value: -1.11
->>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 8762286023885395322, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1355,119 +1347,7 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
---- !u!1 &666851703
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 666851707}
-  - component: {fileID: 666851706}
-  - component: {fileID: 666851705}
-  - component: {fileID: 666851704}
-  m_Layer: 0
-  m_Name: EHR Terminal
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!65 &666851704
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 666851703}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &666851705
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 666851703}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_MaskInteraction: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &666851706
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 666851703}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &666851707
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 666851703}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.73, y: 1.14, z: 4.361}
-  m_LocalScale: {x: 1.5, y: 2, z: 0.8}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &779916013
+--- !u!1 &429372917
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1752,7 +1632,6 @@ GameObject:
   - component: {fileID: 580997247}
   - component: {fileID: 580997249}
   - component: {fileID: 580997248}
-  - component: {fileID: 580997250}
   m_Layer: 5
   m_Name: BedPanel
   m_TagString: Untagged
@@ -1823,18 +1702,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 580997246}
   m_CullTransparentMesh: 1
---- !u!114 &580997250
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 580997246}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d2e46f9a7f61d44883e4cd77885c847, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MonitorPanelController
 --- !u!1 &666851703
 GameObject:
   m_ObjectHideFlags: 0
@@ -1847,6 +1714,7 @@ GameObject:
   - component: {fileID: 666851706}
   - component: {fileID: 666851705}
   - component: {fileID: 666851704}
+  - component: {fileID: 666851708}
   m_Layer: 0
   m_Name: EHR Terminal
   m_TagString: Untagged
@@ -1947,6 +1815,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &666851708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 666851703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad95ccff298a01f478453edd89bc15f3, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::Hotspot
+  hotspotId: hs_ehr
+  hotspotName: EHR Terminal
+  interactionPanel: {fileID: 0}
+  interactionMessage: EHR system - coming in Phase 5
 --- !u!1 &779916013
 GameObject:
   m_ObjectHideFlags: 0
@@ -2507,8 +2391,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad95ccff298a01f478453edd89bc15f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Hotspot
+  hotspotId: hs_monitor
   hotspotName: Monitor
   interactionPanel: {fileID: 1412789987}
+  interactionMessage:
 --- !u!1 &1005535972 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8616685848737228372, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
@@ -2525,9 +2411,12 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d87fe1cf716bd9846af31900bcb5ba0f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
+  m_EditorClassIdentifier: Assembly-CSharp::HotspotInteractor
   playerCamera: {fileID: 1035009011}
   interactionDistance: 3
+  interactionLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1001 &1035009006
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2667,6 +2556,7 @@ GameObject:
   - component: {fileID: 1039475553}
   - component: {fileID: 1039475552}
   - component: {fileID: 1039475551}
+  - component: {fileID: 1039475555}
   m_Layer: 5
   m_Name: MainCanvas
   m_TagString: Untagged
@@ -2714,6 +2604,20 @@ MonoBehaviour:
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
   m_PresetInfoIsWorld: 0
+--- !u!114 &1039475555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1039475550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f3d2f0e4af84fbda3d0f3c2a42bb123, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::UIFlowController
+  playerController: {fileID: 0}
+  playerInputs: {fileID: 0}
 --- !u!223 &1039475553
 Canvas:
   m_ObjectHideFlags: 0
@@ -3019,7 +2923,6 @@ GameObject:
   - component: {fileID: 1412789988}
   - component: {fileID: 1412789991}
   - component: {fileID: 1412789990}
-  - component: {fileID: 1412789989}
   m_Layer: 5
   m_Name: MonitorPanel
   m_TagString: Untagged
@@ -3053,18 +2956,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1412789989
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1412789987}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d2e46f9a7f61d44883e4cd77885c847, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MonitorPanelController
 --- !u!114 &1412789990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3115,6 +3006,7 @@ GameObject:
   - component: {fileID: 1499343671}
   - component: {fileID: 1499343670}
   - component: {fileID: 1499343669}
+  - component: {fileID: 1499343673}
   m_Layer: 0
   m_Name: Call Button Base
   m_TagString: Untagged
@@ -3209,12 +3101,28 @@ Transform:
   m_GameObject: {fileID: 1499343668}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.6460001, y: -1.4385799, z: 3.7603602}
+  m_LocalPosition: {x: 3.6460001, y: 1.4, z: 3.7603602}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2055700274}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1499343673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1499343668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad95ccff298a01f478453edd89bc15f3, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::Hotspot
+  hotspotId: hs_call
+  hotspotName: Call Button
+  interactionPanel: {fileID: 0}
+  interactionMessage: Call button activated
 --- !u!1 &1587215882
 GameObject:
   m_ObjectHideFlags: 0
@@ -3727,17 +3635,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8997996947095583982, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: m_LocalPosition.x
-<<<<<<< Updated upstream
-      value: -0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 8997996947095583982, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.04
-      objectReference: {fileID: 0}
-    - target: {fileID: 8997996947095583982, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -2.88
-=======
       value: 2.68
       objectReference: {fileID: 0}
     - target: {fileID: 8997996947095583982, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
@@ -3747,7 +3644,6 @@ PrefabInstance:
     - target: {fileID: 8997996947095583982, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: m_LocalPosition.z
       value: -1.11
->>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 8997996947095583982, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4061,3 +3957,6 @@ SceneRoots:
   - {fileID: 345420669}
   - {fileID: 1039475554}
   - {fileID: 99705896}
+  - {fileID: 143973193}
+  - {fileID: 328900653}
+  - {fileID: 1499343672}

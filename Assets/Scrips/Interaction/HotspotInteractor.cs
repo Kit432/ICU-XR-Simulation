@@ -5,21 +5,46 @@ public class HotspotInteractor : MonoBehaviour
 {
     public Camera playerCamera;
     public float interactionDistance = 3f;
+    public LayerMask interactionLayers = ~0;
 
     private Hotspot currentHotspot;
+
+    private void Awake()
+    {
+        if (playerCamera == null)
+        {
+            playerCamera = Camera.main;
+        }
+
+        if (playerCamera == null)
+        {
+            Debug.LogError("HotspotInteractor requires a player camera. Interaction has been disabled.", this);
+            enabled = false;
+        }
+    }
 
     void Update()
     {
         currentHotspot = null;
+
+        if (UIFlowController.Instance != null && UIFlowController.Instance.HasOpenModal)
+        {
+            return;
+        }
 
         Ray ray = new Ray(
             playerCamera.transform.position,
             playerCamera.transform.forward
         );
 
-        if (Physics.Raycast(ray, out RaycastHit hit, interactionDistance))
+        if (Physics.Raycast(
+                ray,
+                out RaycastHit hit,
+                interactionDistance,
+                interactionLayers,
+                QueryTriggerInteraction.Collide))
         {
-            Hotspot hotspot = hit.collider.GetComponent<Hotspot>();
+            Hotspot hotspot = hit.collider.GetComponentInParent<Hotspot>();
 
             if (hotspot != null)
             {
@@ -39,8 +64,8 @@ public class HotspotInteractor : MonoBehaviour
         if (currentHotspot != null)
         {
             GUI.Box(
-                new Rect(Screen.width / 2 - 100, Screen.height - 100, 200, 40),
-                "Press E to interact"
+                new Rect(Screen.width / 2 - 180, Screen.height - 100, 360, 40),
+                "Press E to interact with " + currentHotspot.HotspotName
             );
         }
     }
