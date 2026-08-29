@@ -1,0 +1,21 @@
+{
+  "name": "ICUSimulation.Scenarios.EditModeTests",
+  "rootNamespace": "ICUSimulation.Tests.EditMode",
+  "references": [
+    "ICUSimulation.Scenarios"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": false,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false,
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ]
+}
