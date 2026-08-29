@@ -22,6 +22,7 @@ namespace ICUSimulation.Scenarios
         public event Action<ScenarioFlagChangedEvent> FlagChanged;
         public event Action<ScenarioTimeoutEvent> TimeoutTriggered;
         public event Action<ScenarioGlobalRuleEvent> GlobalRuleActivated;
+        public event Action<ScenarioGlobalRuleEvent> GlobalRuleDeactivated;
         public event Action<ScenarioGateEvent> GateBlocked;
         public event Action<ScenarioGateEvent> GatePassed;
         public event Action<ScenarioState> ScenarioCompleted;
@@ -245,7 +246,12 @@ namespace ICUSimulation.Scenarios
                 bool conditionIsTrue = ruleEvaluator.EvaluateGlobalRule(rule, State);
                 if (!conditionIsTrue)
                 {
-                    activeGlobalRuleIds.Remove(rule.Id);
+                    if (activeGlobalRuleIds.Remove(rule.Id))
+                    {
+                        GlobalRuleDeactivated?.Invoke(new ScenarioGlobalRuleEvent(rule));
+                        effectExecutor.ApplyEffects(rule.Effects, State, rule.Id, false);
+                    }
+
                     continue;
                 }
 

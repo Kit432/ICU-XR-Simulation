@@ -191,6 +191,29 @@ namespace ICUSimulation.Tests.EditMode
         }
 
         [Test]
+        public void GlobalRuleDeactivation_EmitsInactiveUiVisualRequest()
+        {
+            ScenarioRunner runner = CreateRunner();
+            ScenarioUiEffectRequest deactivation = null;
+            runner.UiEffectRequested += request =>
+            {
+                if (!request.IsActive)
+                {
+                    deactivation = request;
+                }
+            };
+
+            runner.Start();
+            runner.State.OxygenSaturation = 94;
+            runner.EvaluateGlobalRules();
+
+            Assert.That(deactivation, Is.Not.Null);
+            Assert.That(deactivation.Target, Is.EqualTo("hs_monitor"));
+            Assert.That(deactivation.State, Is.EqualTo("blinking_red"));
+            Assert.That(deactivation.IsActive, Is.False);
+        }
+
+        [Test]
         public void UnsatisfiedGate_RemainsBlocked()
         {
             ScenarioRunner runner = ReachInterventionDecision();

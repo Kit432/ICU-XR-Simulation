@@ -31,13 +31,20 @@ namespace ICUSimulation.Scenarios
         public string Target { get; }
         public string State { get; }
         public string SourceId { get; }
+        public bool IsActive { get; }
 
-        public ScenarioUiEffectRequest(string effectType, string target, string state, string sourceId = null)
+        public ScenarioUiEffectRequest(
+            string effectType,
+            string target,
+            string state,
+            string sourceId = null,
+            bool isActive = true)
         {
             EffectType = effectType;
             Target = target;
             State = state;
             SourceId = sourceId;
+            IsActive = isActive;
         }
     }
 
