@@ -1,4 +1,6 @@
 ﻿<Solution>
+  <Project Path="ICUSimulation.Scenarios.csproj" />
   <Project Path="Assembly-CSharp.csproj" />
   <Project Path="Assembly-CSharp-Editor.csproj" />
+  <Project Path="ICUSimulation.Scenarios.EditModeTests.csproj" />
 </Solution>
