@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Globalization;
 using ICUSimulation.Scenarios;
+using Newtonsoft.Json.Linq;
 using NUnit.Framework;
 using UnityEngine;
 
@@ -191,6 +193,146 @@ namespace ICUSimulation.Tests.EditMode
 
             Assert.That(result.IsSuccess, Is.False);
             Assert.That(result.Error, Does.StartWith("Malformed scenario JSON:"));
+        }
+
+        [TestCase(null)]
+        [TestCase("unsupported")]
+        public void MissingOrUnsupportedNodeType_FailsBeforeRuntime(string type)
+        {
+            ScenarioDefinition definition = LoadUniversityScenario();
+            definition.Nodes[0].Type = type;
+            Assert.That(ScenarioValidator.Validate(definition).IsValid, Is.False);
+        }
+
+        [Test]
+        public void MissingMessageTransition_FailsBeforeRuntime()
+        {
+            ScenarioDefinition definition = LoadUniversityScenario();
+            definition.Nodes[0].NextNodeId = null;
+            Assert.That(ScenarioValidator.Validate(definition).IsValid, Is.False);
+        }
+
+        [Test]
+        public void EmptyDecisionOrUnknownHotspot_FailsBeforeRuntime()
+        {
+            ScenarioDefinition definition = LoadUniversityScenario();
+            definition.Nodes[1].Options[0].TargetHotspot = "hs_missing";
+            Assert.That(ScenarioValidator.Validate(definition).Errors.Any(e => e.Contains("hs_missing")), Is.True);
+            definition.Nodes[1].Options.Clear();
+            Assert.That(ScenarioValidator.Validate(definition).Errors.Any(e => e.Contains("at least one option")), Is.True);
+        }
+
+        [Test]
+        public void MultipleOptionsSharingHotspot_FailsAsAmbiguous()
+        {
+            ScenarioDefinition definition = LoadUniversityScenario();
+            definition.Nodes[1].Options[1].TargetHotspot = definition.Nodes[1].Options[0].TargetHotspot;
+            Assert.That(ScenarioValidator.Validate(definition).Errors.Any(e => e.Contains("ambiguous")), Is.True);
+        }
+
+        [Test]
+        public void UnknownGateFormOrField_FailsBeforeItCanBlockForever()
+        {
+            ScenarioDefinition definition = LoadUniversityScenario();
+            RequiredForm requirement = definition.Nodes[3].GateRequirements.RequiredForms[0];
+            requirement.Fields[0] = "missing_field";
+            Assert.That(ScenarioValidator.Validate(definition).Errors.Any(e => e.Contains("missing_field")), Is.True);
+            requirement.FormId = "missing_form";
+            Assert.That(ScenarioValidator.Validate(definition).Errors.Any(e => e.Contains("missing_form")), Is.True);
+        }
+
+        [Test]
+        public void GateOnlyCycle_FailsBeforeSynchronousInfiniteRecursion()
+        {
+            ScenarioDefinition definition = LoadUniversityScenario();
+            definition.Nodes[3].NextNodeId = definition.Nodes[3].Id;
+            Assert.That(ScenarioValidator.Validate(definition).Errors.Any(e => e.Contains("Gate cycle")), Is.True);
+        }
+
+        [TestCase(0f)]
+        [TestCase(-1f)]
+        [TestCase(float.PositiveInfinity)]
+        [TestCase(float.NaN)]
+        public void InvalidTimeout_FailsValidation(float seconds)
+        {
+            ScenarioDefinition definition = LoadUniversityScenario();
+            definition.Nodes[1].Timeout.Seconds = seconds;
+            Assert.That(ScenarioValidator.Validate(definition).Errors.Any(e => e.Contains("finite positive")), Is.True);
+        }
+
+        [Test]
+        public void UnreachableEnd_FailsValidation()
+        {
+            ScenarioDefinition definition = LoadUniversityScenario();
+            definition.Nodes[6].NextNodeId = definition.Nodes[0].Id;
+            definition.Nodes[5].Options[1].NextNodeId = definition.Nodes[0].Id;
+            Assert.That(ScenarioValidator.Validate(definition).Errors.Any(e => e.Contains("No end node can be reached")), Is.True);
+        }
+
+        [Test]
+        public void ReassessmentScenario_IsDistinctValidAndSelectable()
+        {
+            string secondPath = Path.Combine(Path.GetDirectoryName(samplePath), "icu_scenario_reassessment_v2.json");
+            ScenarioLoadResult second = loader.LoadFromFile(secondPath);
+            Assert.That(second.IsSuccess, Is.True, second.Error);
+            Assert.That(second.Definition.Metadata.Id, Is.Not.EqualTo(LoadUniversityScenario().Metadata.Id));
+            Assert.That(second.Definition.Nodes[1].Timeout.Seconds, Is.EqualTo(45f));
+            Assert.That(loader.DiscoverScenarios().Scenarios.Any(s => s.Id == second.Definition.Metadata.Id), Is.True);
+        }
+
+        [TestCase("\"not-a-bool\"")]
+        [TestCase("{\"nested\":true}")]
+        [TestCase("[true]")]
+        [TestCase("null")]
+        public void MalformedBooleanRuleOperand_IsRejectedAtLoadAndSafeToEvaluate(string operandJson)
+        {
+            ScenarioDefinition definition = LoadUniversityScenario();
+            ScenarioState state = ScenarioState.CreateFromDefinition(definition);
+            JObject condition = new JObject
+            {
+                ["flags.assessment_complete"] = new JObject { ["eq"] = JToken.Parse(operandJson) }
+            };
+            definition.Rules.GlobalRules[0].Condition = condition;
+            Assert.That(ScenarioValidator.Validate(definition).IsValid, Is.False);
+            Assert.That(new RuleEvaluator().EvaluateCondition(condition, state), Is.False);
+        }
+
+        [Test]
+        public void UnknownRuleOperatorOrPath_IsRejectedWithClearValidationError()
+        {
+            ScenarioDefinition definition = LoadUniversityScenario();
+            definition.Rules.GlobalRules[0].Condition = JObject.Parse("{\"vitals.spo2\":{\"approximately\":90},\"unknown.path\":true}");
+            ScenarioValidationResult result = ScenarioValidator.Validate(definition);
+            Assert.That(result.Errors.Any(e => e.Contains("unsupported comparison")), Is.True);
+            Assert.That(result.Errors.Any(e => e.Contains("unsupported state path")), Is.True);
+        }
+
+        [Test]
+        public void MalformedEffectOperands_AreRejectedBeforeAnActionCanSilentlyFail()
+        {
+            ScenarioDefinition definition = LoadUniversityScenario();
+            definition.Nodes[1].Options[0].Effects.StateUpdate["flags.assessment_complete"] = "not-a-bool";
+            definition.Nodes[2].Options[0].Effects.VitalsUpdate["spo2"] = new JObject { ["nested"] = 94 };
+            ScenarioValidationResult result = ScenarioValidator.Validate(definition);
+            Assert.That(result.Errors.Any(e => e.Contains("requires true or false")), Is.True);
+            Assert.That(result.Errors.Any(e => e.Contains("requires a scalar value")), Is.True);
+        }
+
+        [Test]
+        public void NumericRuleStrings_UseInvariantCulture()
+        {
+            ScenarioDefinition definition = LoadUniversityScenario();
+            ScenarioState state = ScenarioState.CreateFromDefinition(definition);
+            JObject condition = JObject.Parse("{\"vitals.temp\":{\"lt\":\"37.1\"}}");
+            CultureInfo previous = CultureInfo.CurrentCulture;
+            try
+            {
+                CultureInfo.CurrentCulture = CultureInfo.GetCultureInfo("el-GR");
+                Assert.That(new RuleEvaluator().EvaluateCondition(condition, state), Is.True);
+                definition.Rules.GlobalRules[0].Condition = condition;
+                Assert.That(ScenarioValidator.Validate(definition).IsValid, Is.True);
+            }
+            finally { CultureInfo.CurrentCulture = previous; }
         }
 
         private ScenarioDefinition LoadUniversityScenario()

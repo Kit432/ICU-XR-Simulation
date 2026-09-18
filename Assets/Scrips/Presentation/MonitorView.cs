@@ -132,54 +132,14 @@ public sealed class MonitorView : MonoBehaviour
 
     private void EnsureAlarmPresentation()
     {
-        if (monitorPanel == null || alarmGroup != null)
-        {
-            return;
-        }
-
-        Transform existing = monitorPanel.transform.Find("AlarmPresentation_Runtime");
-        GameObject alarmRoot = existing != null
-            ? existing.gameObject
-            : new GameObject("AlarmPresentation_Runtime", typeof(RectTransform), typeof(CanvasGroup));
-        alarmRoot.transform.SetParent(monitorPanel.transform, false);
-        RectTransform rootRect = alarmRoot.GetComponent<RectTransform>();
-        rootRect.anchorMin = Vector2.zero;
-        rootRect.anchorMax = Vector2.one;
-        rootRect.offsetMin = Vector2.zero;
-        rootRect.offsetMax = Vector2.zero;
-        alarmGroup = alarmRoot.GetComponent<CanvasGroup>();
-
-        if (existing == null)
-        {
-            CreateBorder(alarmRoot.transform, "AlarmTop", new Vector2(0f, 1f), new Vector2(1f, 1f), new Vector2(0f, 6f));
-            CreateBorder(alarmRoot.transform, "AlarmBottom", new Vector2(0f, 0f), new Vector2(1f, 0f), new Vector2(0f, 6f));
-            CreateBorder(alarmRoot.transform, "AlarmLeft", new Vector2(0f, 0f), new Vector2(0f, 1f), new Vector2(6f, 0f));
-            CreateBorder(alarmRoot.transform, "AlarmRight", new Vector2(1f, 0f), new Vector2(1f, 1f), new Vector2(6f, 0f));
-            CreateAlarmLabel(alarmRoot.transform);
-        }
+        if (monitorPanel != null)
+            alarmGroup = monitorPanel.transform.Find("AlarmPresentation_Runtime")?.GetComponent<CanvasGroup>();
     }
 
     private void EnsureWaveform()
     {
-        if (monitorPanel == null || waveform != null)
-        {
-            return;
-        }
-
-        Transform existing = monitorPanel.transform.Find("Waveform_Runtime");
-        GameObject waveformObject = existing != null
-            ? existing.gameObject
-            : new GameObject("Waveform_Runtime", typeof(RectTransform), typeof(CanvasRenderer), typeof(MonitorWaveformGraphic));
-        waveformObject.transform.SetParent(monitorPanel.transform, false);
-        RectTransform rect = waveformObject.GetComponent<RectTransform>();
-        rect.anchorMin = new Vector2(0.5f, 0.5f);
-        rect.anchorMax = new Vector2(0.5f, 0.5f);
-        rect.pivot = new Vector2(0.5f, 0.5f);
-        rect.anchoredPosition = new Vector2(0f, -145f);
-        rect.sizeDelta = new Vector2(470f, 80f);
-        waveform = waveformObject.GetComponent<MonitorWaveformGraphic>();
-        waveform.color = new Color(0.15f, 1f, 0.42f, 1f);
-        waveform.raycastTarget = false;
+        if (monitorPanel != null)
+            waveform = monitorPanel.GetComponentInChildren<MonitorWaveformGraphic>(true);
     }
 
     private void UpdateAlarmPresentation()
@@ -194,46 +154,6 @@ public sealed class MonitorView : MonoBehaviour
             : 0f;
         alarmGroup.blocksRaycasts = false;
         alarmGroup.interactable = false;
-    }
-
-    private static void CreateBorder(
-        Transform parent,
-        string name,
-        Vector2 anchorMin,
-        Vector2 anchorMax,
-        Vector2 sizeDelta)
-    {
-        GameObject border = new GameObject(name, typeof(RectTransform), typeof(CanvasRenderer), typeof(Image));
-        border.transform.SetParent(parent, false);
-        RectTransform rect = border.GetComponent<RectTransform>();
-        rect.anchorMin = anchorMin;
-        rect.anchorMax = anchorMax;
-        rect.pivot = (anchorMin + anchorMax) * 0.5f;
-        rect.anchoredPosition = Vector2.zero;
-        rect.sizeDelta = sizeDelta;
-        Image image = border.GetComponent<Image>();
-        image.color = new Color(1f, 0.06f, 0.04f, 0.95f);
-        image.raycastTarget = false;
-    }
-
-    private static void CreateAlarmLabel(Transform parent)
-    {
-        GameObject labelObject = new GameObject("AlarmLabel", typeof(RectTransform), typeof(CanvasRenderer), typeof(Text));
-        labelObject.transform.SetParent(parent, false);
-        RectTransform rect = labelObject.GetComponent<RectTransform>();
-        rect.anchorMin = new Vector2(0.5f, 1f);
-        rect.anchorMax = new Vector2(0.5f, 1f);
-        rect.pivot = new Vector2(0.5f, 1f);
-        rect.anchoredPosition = new Vector2(0f, -16f);
-        rect.sizeDelta = new Vector2(260f, 44f);
-        Text label = labelObject.GetComponent<Text>();
-        label.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
-        label.fontSize = 24;
-        label.fontStyle = FontStyle.Bold;
-        label.alignment = TextAnchor.MiddleCenter;
-        label.text = "ALARM — CHECK MONITOR";
-        label.color = Color.white;
-        label.raycastTarget = false;
     }
 
     private static void SetText(TMP_Text target, string value)

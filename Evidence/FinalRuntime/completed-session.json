@@ -1,0 +1,1866 @@
+{
+  "schema_version": "1.0",
+  "session_id": "84b38f494d5b463fa4a9644f55d5a6a0",
+  "scenario_id": "icu_scenario_hypoxia_v1",
+  "scenario_title": "ΜΕΘ: Διαχείριση Υποξαιμίας & Αναπνευστήρα",
+  "started_utc": "2026-09-18T13:28:37.9915599Z",
+  "ended_utc": "2026-09-18T13:28:40.1421184Z",
+  "completed": true,
+  "debrief": {
+    "ScenarioTitle": "ΜΕΘ: Διαχείριση Υποξαιμίας & Αναπνευστήρα",
+    "Score": 155,
+    "ElapsedSeconds": 2.155529,
+    "Completed": true,
+    "DecisionPath": [
+      "0.0s | NODE_ENTER | n1_start: Βρίσκεστε στη ΜΕΘ. Ο ασθενής στην κλίνη 1 εμφανίζει ξαφνική δύσπνοια. Το μόνιτορ χτυπάει (SpO2: 88%).",
+      "0.8s | NODE_ENTER | n2_initial_decision: Ποια είναι η πρώτη σου ενέργεια;",
+      "0.8s | OPTION_SELECTED | opt_assess: Άμεση Αξιολόγηση Ασθενούς",
+      "0.8s | NODE_ENTER | n3_intervention: Το πρόβλημα είναι οξυγοναντικό. Πρέπει να ρυθμίσεις τον αναπνευστήρα.",
+      "1.1s | OPTION_SELECTED | opt_increase_o2: Αύξηση FiO2 (100%)",
+      "1.1s | NODE_ENTER | n4_gate_documentation_1: 🛑 GATE: Τεκμηρίωση Αξιολόγησης & Παρέμβασης.",
+      "1.8s | NODE_ENTER | n5_reassessment: 5 λεπτά αργότερα... Η κατάσταση έχει σταθεροποιηθεί (SpO2: 94%), αλλά ο ασθενής παραμένει ταχύπνοος.",
+      "2.1s | NODE_ENTER | n6_escalation_decision: Χρειάζεται περαιτέρω ενέργεια;",
+      "2.1s | OPTION_SELECTED | opt_call_doc: Κλήση Ιατρού (Κλιμάκωση)",
+      "2.1s | NODE_ENTER | n7_gate_documentation_2: 🛑 GATE: Καταγραφή Επικοινωνίας.",
+      "2.2s | NODE_ENTER | n8_end_scenario: Το σενάριο ολοκληρώθηκε."
+    ],
+    "Checklist": [
+      {
+        "Label": "Escalation Complete",
+        "IsComplete": true,
+        "Detail": "Recorded by the scenario"
+      },
+      {
+        "Label": "Oxygen Adjusted",
+        "IsComplete": true,
+        "Detail": "Recorded by the scenario"
+      },
+      {
+        "Label": "Assessment Complete",
+        "IsComplete": true,
+        "Detail": "Recorded by the scenario"
+      },
+      {
+        "Label": "Κλινική Αξιολόγηση / Observation / Παρατήρηση",
+        "IsComplete": true,
+        "Detail": "Required documentation saved"
+      },
+      {
+        "Label": "Παρεμβάσεις / Ρυθμίσεις / FiO2 setting",
+        "IsComplete": true,
+        "Detail": "Required documentation saved"
+      },
+      {
+        "Label": "Ημερολόγιο Επικοινωνίας / Recipient",
+        "IsComplete": true,
+        "Detail": "Required documentation saved"
+      },
+      {
+        "Label": "Ημερολόγιο Επικοινωνίας / Outcome",
+        "IsComplete": true,
+        "Detail": "Required documentation saved"
+      },
+      {
+        "Label": "Response within the decision time limit",
+        "IsComplete": true,
+        "Detail": "No timeout"
+      },
+      {
+        "Label": "Scenario completed",
+        "IsComplete": true,
+        "Detail": "End node reached"
+      }
+    ],
+    "SavedDocumentation": [
+      "Κλινική Αξιολόγηση / Observation / Παρατήρηση: Cyanosis and increased respiratory rate observed in the simulation.",
+      "Παρεμβάσεις / Ρυθμίσεις / FiO2 setting: 100%",
+      "Ημερολόγιο Επικοινωνίας / Recipient: On-call physician (simulated)",
+      "Ημερολόγιο Επικοινωνίας / Outcome: Simulated physician notified; reassessment requested."
+    ],
+    "MissedDocumentation": [],
+    "NotRequiredDocumentation": [],
+    "TimeoutCount": 0,
+    "UsedDebugBypass": false
+  },
+  "events": [
+    {
+      "Sequence": 1,
+      "TimestampUtc": "2026-09-18T13:28:37.9956085Z",
+      "ElapsedSeconds": 0.0,
+      "EventType": "SCENARIO_STARTED",
+      "NodeId": "n1_start",
+      "SourceId": "icu_scenario_hypoxia_v1",
+      "Detail": null,
+      "State": {
+        "ActiveScenarioId": "icu_scenario_hypoxia_v1",
+        "CurrentNodeId": "n1_start",
+        "ElapsedTime": 0.0,
+        "CurrentScore": 100,
+        "HeartRate": 110,
+        "OxygenSaturation": 88,
+        "RespiratoryRate": 24,
+        "BloodPressure": "125/80",
+        "Temperature": 37.0,
+        "Flags": {
+          "assessment_complete": false,
+          "oxygen_adjusted": false,
+          "documentation_1_complete": false,
+          "escalation_complete": false,
+          "documentation_2_complete": false
+        },
+        "ActiveHotspots": [
+          "hs_monitor",
+          "hs_patient",
+          "hs_ventilator",
+          "hs_ehr",
+          "hs_call"
+        ],
+        "MonitorAlert": true
+      },
+      "Fields": null
+    },
+    {
+      "Sequence": 2,
+      "TimestampUtc": "2026-09-18T13:28:37.9966049Z",
+      "ElapsedSeconds": 0.0,
+      "EventType": "NODE_ENTER",
+      "NodeId": "n1_start",
+      "SourceId": "n1_start",
+      "Detail": "Βρίσκεστε στη ΜΕΘ. Ο ασθενής στην κλίνη 1 εμφανίζει ξαφνική δύσπνοια. Το μόνιτορ χτυπάει (SpO2: 88%).",
+      "State": {
+        "ActiveScenarioId": "icu_scenario_hypoxia_v1",
+        "CurrentNodeId": "n1_start",
+        "ElapsedTime": 0.0,
+        "CurrentScore": 100,
+        "HeartRate": 110,
+        "OxygenSaturation": 88,
+        "RespiratoryRate": 24,
+        "BloodPressure": "125/80",
+        "Temperature": 37.0,
+        "Flags": {
+          "assessment_complete": false,
+          "oxygen_adjusted": false,
+          "documentation_1_complete": false,
+          "escalation_complete": false,
+          "documentation_2_complete": false
+        },
+        "ActiveHotspots": [
+          "hs_monitor",
+          "hs_patient",
+          "hs_ventilator",
+          "hs_ehr",
+          "hs_call"
+        ],
+        "MonitorAlert": true
+      },
+      "Fields": null
+    },
+    {
+      "Sequence": 3,
+      "TimestampUtc": "2026-09-18T13:28:37.9991107Z",
+      "ElapsedSeconds": 0.0,
+      "EventType": "GLOBAL_RULE_ACTIVATED",
+      "NodeId": "n1_start",
+      "SourceId": "rule_hypoxia_alarm",
+      "Detail": null,
+      "State": {
+        "ActiveScenarioId": "icu_scenario_hypoxia_v1",
+        "CurrentNodeId": "n1_start",
+        "ElapsedTime": 0.0,
+        "CurrentScore": 100,
+        "HeartRate": 110,
+        "OxygenSaturation": 88,
+        "RespiratoryRate": 24,
+        "BloodPressure": "125/80",
+        "Temperature": 37.0,
+        "Flags": {
+          "assessment_complete": false,
+          "oxygen_adjusted": false,
+          "documentation_1_complete": false,
+          "escalation_complete": false,
+          "documentation_2_complete": false
+        },
+        "ActiveHotspots": [
+          "hs_monitor",
+          "hs_patient",
+          "hs_ventilator",
+          "hs_ehr",
+          "hs_call"
+        ],
+        "MonitorAlert": true
+      },
+      "Fields": null
+    },
+    {
+      "Sequence": 4,
+      "TimestampUtc": "2026-09-18T13:28:38.3495478Z",
+      "ElapsedSeconds": 0.345507622,
+      "EventType": "HOTSPOT_INTERACTION",
+      "NodeId": "n1_start",
+      "SourceId": "hs_monitor",
+      "Detail": null,
+      "State": {
+        "ActiveScenarioId": "icu_scenario_hypoxia_v1",
+        "CurrentNodeId": "n1_start",
+        "ElapsedTime": 0.345507622,
+        "CurrentScore": 100,
+        "HeartRate": 110,
+        "OxygenSaturation": 88,
+        "RespiratoryRate": 24,
+        "BloodPressure": "125/80",
+        "Temperature": 37.0,
+        "Flags": {
+          "assessment_complete": false,
+          "oxygen_adjusted": false,
+          "documentation_1_complete": false,
+          "escalation_complete": false,
+          "documentation_2_complete": false
+        },
+        "ActiveHotspots": [
+          "hs_monitor",
+          "hs_patient",
+          "hs_ventilator",
+          "hs_ehr",
+          "hs_call"
+        ],
+        "MonitorAlert": true
+      },
+      "Fields": null
+    },
+    {
+      "Sequence": 5,
+      "TimestampUtc": "2026-09-18T13:28:38.7553125Z",
+      "ElapsedSeconds": 0.768657,
+      "EventType": "MESSAGE_CONTINUE",
+      "NodeId": "n1_start",
+      "SourceId": "n1_start",
+      "Detail": null,
+      "State": {
+        "ActiveScenarioId": "icu_scenario_hypoxia_v1",
+        "CurrentNodeId": "n1_start",
+        "ElapsedTime": 0.768657,
+        "CurrentScore": 100,
+        "HeartRate": 110,
+        "OxygenSaturation": 88,
+        "RespiratoryRate": 24,
+        "BloodPressure": "125/80",
+        "Temperature": 37.0,
+        "Flags": {
+          "assessment_complete": false,
+          "oxygen_adjusted": false,
+          "documentation_1_complete": false,
+          "escalation_complete": false,
+          "documentation_2_complete": false
+        },
+        "ActiveHotspots": [
+          "hs_monitor",
+          "hs_patient",
+          "hs_ventilator",
+          "hs_ehr",
+          "hs_call"
+        ],
+        "MonitorAlert": true
+      },
+      "Fields": null
+    },
+    {
+      "Sequence": 6,
+      "TimestampUtc": "2026-09-18T13:28:38.7553125Z",
+      "ElapsedSeconds": 0.768657,
+      "EventType": "NODE_ENTER",
+      "NodeId": "n2_initial_decision",
+      "SourceId": "n2_initial_decision",
+      "Detail": "Ποια είναι η πρώτη σου ενέργεια;",
+      "State": {
+        "ActiveScenarioId": "icu_scenario_hypoxia_v1",
+        "CurrentNodeId": "n2_initial_decision",
+        "ElapsedTime": 0.768657,
+        "CurrentScore": 100,
+        "HeartRate": 110,
+        "OxygenSaturation": 88,
+        "RespiratoryRate": 24,
+        "BloodPressure": "125/80",
+        "Temperature": 37.0,
+        "Flags": {
+          "assessment_complete": false,
+          "oxygen_adjusted": false,
+          "documentation_1_complete": false,
+          "escalation_complete": false,
+          "documentation_2_complete": false
+        },
+        "ActiveHotspots": [
+          "hs_monitor",
+          "hs_patient",
+          "hs_ventilator",
+          "hs_ehr",
+          "hs_call"
+        ],
+        "MonitorAlert": true
+      },
+      "Fields": null
+    },
+    {
+      "Sequence": 7,
+      "TimestampUtc": "2026-09-18T13:28:38.7553125Z",
+      "ElapsedSeconds": 0.768657,
+      "EventType": "HOTSPOT_INTERACTION",
+      "NodeId": "n2_initial_decision",
+      "SourceId": "hs_patient",
+      "Detail": null,
+      "State": {
+        "ActiveScenarioId": "icu_scenario_hypoxia_v1",
+        "CurrentNodeId": "n2_initial_decision",
+        "ElapsedTime": 0.768657,
+        "CurrentScore": 100,
+        "HeartRate": 110,
+        "OxygenSaturation": 88,
+        "RespiratoryRate": 24,
+        "BloodPressure": "125/80",
+        "Temperature": 37.0,
+        "Flags": {
+          "assessment_complete": false,
+          "oxygen_adjusted": false,
+          "documentation_1_complete": false,
+          "escalation_complete": false,
+          "documentation_2_complete": false
+        },
+        "ActiveHotspots": [
+          "hs_monitor",
+          "hs_patient",
+          "hs_ventilator",
+          "hs_ehr",
+          "hs_call"
+        ],
+        "MonitorAlert": true
+      },
+      "Fields": null
+    },
+    {
+      "Sequence": 8,
+      "TimestampUtc": "2026-09-18T13:28:38.7558317Z",
+      "ElapsedSeconds": 0.768657,
+      "EventType": "OPTION_SELECTED",
+      "NodeId": "n2_initial_decision",
+      "SourceId": "opt_assess",
+      "Detail": "Άμεση Αξιολόγηση Ασθενούς",
+      "State": {
+        "ActiveScenarioId": "icu_scenario_hypoxia_v1",
+        "CurrentNodeId": "n2_initial_decision",
+        "ElapsedTime": 0.768657,
+        "CurrentScore": 100,
+        "HeartRate": 110,
+        "OxygenSaturation": 88,
+        "RespiratoryRate": 24,
+        "BloodPressure": "125/80",
+        "Temperature": 37.0,
+        "Flags": {
+          "assessment_complete": false,
+          "oxygen_adjusted": false,
+          "documentation_1_complete": false,
+          "escalation_complete": false,
+          "documentation_2_complete": false
+        },
+        "ActiveHotspots": [
+          "hs_monitor",
+          "hs_patient",
+          "hs_ventilator",
+          "hs_ehr",
+          "hs_call"
+        ],
+        "MonitorAlert": true
+      },
+      "Fields": {
+        "hotspot_id": "hs_patient"
+      }
+    },
+    {
+      "Sequence": 9,
+      "TimestampUtc": "2026-09-18T13:28:38.7568864Z",
+      "ElapsedSeconds": 0.768657,
+      "EventType": "SCORE_CHANGE",
+      "NodeId": "n2_initial_decision",
+      "SourceId": null,
+      "Detail": "100 -> 110",
+      "State": {
+        "ActiveScenarioId": "icu_scenario_hypoxia_v1",
+        "CurrentNodeId": "n2_initial_decision",
+        "ElapsedTime": 0.768657,
+        "CurrentScore": 110,
+        "HeartRate": 110,
+        "OxygenSaturation": 88,
+        "RespiratoryRate": 24,
+        "BloodPressure": "125/80",
+        "Temperature": 37.0,
+        "Flags": {
+          "assessment_complete": false,
+          "oxygen_adjusted": false,
+          "documentation_1_complete": false,
+          "escalation_complete": false,
+          "documentation_2_complete": false
+        },
+        "ActiveHotspots": [
+          "hs_monitor",
+          "hs_patient",
+          "hs_ventilator",
+          "hs_ehr",
+          "hs_call"
+        ],
+        "MonitorAlert": true
+      },
+      "Fields": null
+    },
+    {
+      "Sequence": 10,
+      "TimestampUtc": "2026-09-18T13:28:38.7585060Z",
+      "ElapsedSeconds": 0.768657,
+      "EventType": "FLAG_CHANGE",
+      "NodeId": "n2_initial_decision",
+      "SourceId": "assessment_complete",
+      "Detail": "True",
+      "State": {
+        "ActiveScenarioId": "icu_scenario_hypoxia_v1",
+        "CurrentNodeId": "n2_initial_decision",
+        "ElapsedTime": 0.768657,
+        "CurrentScore": 110,
+        "HeartRate": 110,
+        "OxygenSaturation": 88,
+        "RespiratoryRate": 24,
+        "BloodPressure": "125/80",
+        "Temperature": 37.0,
+        "Flags": {
+          "assessment_complete": true,
+          "oxygen_adjusted": false,
+          "documentation_1_complete": false,
+          "escalation_complete": false,
+          "documentation_2_complete": false
+        },
+        "ActiveHotspots": [
+          "hs_monitor",
+          "hs_patient",
+          "hs_ventilator",
+          "hs_ehr",
+          "hs_call"
+        ],
+        "MonitorAlert": true
+      },
+      "Fields": null
+    },
+    {
+      "Sequence": 11,
+      "TimestampUtc": "2026-09-18T13:28:38.7590173Z",
+      "ElapsedSeconds": 0.768657,
+      "EventType": "NODE_ENTER",
+      "NodeId": "n3_intervention",
+      "SourceId": "n3_intervention",
+      "Detail": "Το πρόβλημα είναι οξυγοναντικό. Πρέπει να ρυθμίσεις τον αναπνευστήρα.",
+      "State": {
+        "ActiveScenarioId": "icu_scenario_hypoxia_v1",
+        "CurrentNodeId": "n3_intervention",
+        "ElapsedTime": 0.768657,
+        "CurrentScore": 110,
+        "HeartRate": 110,
+        "OxygenSaturation": 88,
+        "RespiratoryRate": 24,
+        "BloodPressure": "125/80",
+        "Temperature": 37.0,
+        "Flags": {
+          "assessment_complete": true,
+          "oxygen_adjusted": false,
+          "documentation_1_complete": false,
+          "escalation_complete": false,
+          "documentation_2_complete": false
+        },
+        "ActiveHotspots": [
+          "hs_monitor",
+          "hs_patient",
+          "hs_ventilator",
+          "hs_ehr",
+          "hs_call"
+        ],
+        "MonitorAlert": true
+      },
+      "Fields": null
+    },
+    {
+      "Sequence": 12,
+      "TimestampUtc": "2026-09-18T13:28:39.0817489Z",
+      "ElapsedSeconds": 1.09686625,
+      "EventType": "HOTSPOT_INTERACTION",
+      "NodeId": "n3_intervention",
+      "SourceId": "hs_ventilator",
+      "Detail": null,
+      "State": {
+        "ActiveScenarioId": "icu_scenario_hypoxia_v1",
+        "CurrentNodeId": "n3_intervention",
+        "ElapsedTime": 1.09686625,
+        "CurrentScore": 110,
+        "HeartRate": 110,
+        "OxygenSaturation": 88,
+        "RespiratoryRate": 24,
+        "BloodPressure": "125/80",
+        "Temperature": 37.0,
+        "Flags": {
+          "assessment_complete": true,
+          "oxygen_adjusted": false,
+          "documentation_1_complete": false,
+          "escalation_complete": false,
+          "documentation_2_complete": false
+        },
+        "ActiveHotspots": [
+          "hs_monitor",
+          "hs_patient",
+          "hs_ventilator",
+          "hs_ehr",
+          "hs_call"
+        ],
+        "MonitorAlert": true
+      },
+      "Fields": null
+    },
+    {
+      "Sequence": 13,
+      "TimestampUtc": "2026-09-18T13:28:39.0817489Z",
+      "ElapsedSeconds": 1.09686625,
+      "EventType": "OPTION_SELECTED",
+      "NodeId": "n3_intervention",
+      "SourceId": "opt_increase_o2",
+      "Detail": "Αύξηση FiO2 (100%)",
+      "State": {
+        "ActiveScenarioId": "icu_scenario_hypoxia_v1",
+        "CurrentNodeId": "n3_intervention",
+        "ElapsedTime": 1.09686625,
+        "CurrentScore": 110,
+        "HeartRate": 110,
+        "OxygenSaturation": 88,
+        "RespiratoryRate": 24,
+        "BloodPressure": "125/80",
+        "Temperature": 37.0,
+        "Flags": {
+          "assessment_complete": true,
+          "oxygen_adjusted": false,
+          "documentation_1_complete": false,
+          "escalation_complete": false,
+          "documentation_2_complete": false
+        },
+        "ActiveHotspots": [
+          "hs_monitor",
+          "hs_patient",
+          "hs_ventilator",
+          "hs_ehr",
+          "hs_call"
+        ],
+        "MonitorAlert": true
+      },
+      "Fields": {
+        "hotspot_id": "hs_ventilator"
+      }
+    },
+    {
+      "Sequence": 14,
+      "TimestampUtc": "2026-09-18T13:28:39.0817489Z",
+      "ElapsedSeconds": 1.09686625,
+      "EventType": "SCORE_CHANGE",
+      "NodeId": "n3_intervention",
+      "SourceId": null,
+      "Detail": "110 -> 130",
+      "State": {
+        "ActiveScenarioId": "icu_scenario_hypoxia_v1",
+        "CurrentNodeId": "n3_intervention",
+        "ElapsedTime": 1.09686625,
+        "CurrentScore": 130,
+        "HeartRate": 110,
+        "OxygenSaturation": 88,
+        "RespiratoryRate": 24,
+        "BloodPressure": "125/80",
+        "Temperature": 37.0,
+        "Flags": {
+          "assessment_complete": true,
+          "oxygen_adjusted": false,
+          "documentation_1_complete": false,
+          "escalation_complete": false,
+          "documentation_2_complete": false
+        },
+        "ActiveHotspots": [
+          "hs_monitor",
+          "hs_patient",
+          "hs_ventilator",
+          "hs_ehr",
+          "hs_call"
+        ],
+        "MonitorAlert": true
+      },
+      "Fields": null
+    },
+    {
+      "Sequence": 15,
+      "TimestampUtc": "2026-09-18T13:28:39.0817489Z",
+      "ElapsedSeconds": 1.09686625,
+      "EventType": "FLAG_CHANGE",
+      "NodeId": "n3_intervention",
+      "SourceId": "oxygen_adjusted",
+      "Detail": "True",
+      "State": {
+        "ActiveScenarioId": "icu_scenario_hypoxia_v1",
+        "CurrentNodeId": "n3_intervention",
+        "ElapsedTime": 1.09686625,
+        "CurrentScore": 130,
+        "HeartRate": 110,
+        "OxygenSaturation": 88,
+        "RespiratoryRate": 24,
+        "BloodPressure": "125/80",
+        "Temperature": 37.0,
+        "Flags": {
+          "assessment_complete": true,
+          "oxygen_adjusted": true,
+          "documentation_1_complete": false,
+          "escalation_complete": false,
+          "documentation_2_complete": false
+        },
+        "ActiveHotspots": [
+          "hs_monitor",
+          "hs_patient",
+          "hs_ventilator",
+          "hs_ehr",
+          "hs_call"
+        ],
+        "MonitorAlert": true
+      },
+      "Fields": null
+    },
+    {
+      "Sequence": 16,
+      "TimestampUtc": "2026-09-18T13:28:39.0837766Z",
+      "ElapsedSeconds": 1.09686625,
+      "EventType": "VITALS_CHANGE",
+      "NodeId": "n3_intervention",
+      "SourceId": "spo2",
+      "Detail": "88 -> 94",
+      "State": {
+        "ActiveScenarioId": "icu_scenario_hypoxia_v1",
+        "CurrentNodeId": "n3_intervention",
+        "ElapsedTime": 1.09686625,
+        "CurrentScore": 130,
+        "HeartRate": 110,
+        "OxygenSaturation": 94,
+        "RespiratoryRate": 24,
+        "BloodPressure": "125/80",
+        "Temperature": 37.0,
+        "Flags": {
+          "assessment_complete": true,
+          "oxygen_adjusted": true,
+          "documentation_1_complete": false,
+          "escalation_complete": false,
+          "documentation_2_complete": false
+        },
+        "ActiveHotspots": [
+          "hs_monitor",
+          "hs_patient",
+          "hs_ventilator",
+          "hs_ehr",
+          "hs_call"
+        ],
+        "MonitorAlert": true
+      },
+      "Fields": null
+    },
+    {
+      "Sequence": 17,
+      "TimestampUtc": "2026-09-18T13:28:39.0847859Z",
+      "ElapsedSeconds": 1.09686625,
+      "EventType": "VITALS_CHANGE",
+      "NodeId": "n3_intervention",
+      "SourceId": "hr",
+      "Detail": "110 -> 100",
+      "State": {
+        "ActiveScenarioId": "icu_scenario_hypoxia_v1",
+        "CurrentNodeId": "n3_intervention",
+        "ElapsedTime": 1.09686625,
+        "CurrentScore": 130,
+        "HeartRate": 100,
+        "OxygenSaturation": 94,
+        "RespiratoryRate": 24,
+        "BloodPressure": "125/80",
+        "Temperature": 37.0,
+        "Flags": {
+          "assessment_complete": true,
+          "oxygen_adjusted": true,
+          "documentation_1_complete": false,
+          "escalation_complete": false,
+          "documentation_2_complete": false
+        },
+        "ActiveHotspots": [
+          "hs_monitor",
+          "hs_patient",
+          "hs_ventilator",
+          "hs_ehr",
+          "hs_call"
+        ],
+        "MonitorAlert": true
+      },
+      "Fields": null
+    },
+    {
+      "Sequence": 18,
+      "TimestampUtc": "2026-09-18T13:28:39.0847859Z",
+      "ElapsedSeconds": 1.09686625,
+      "EventType": "GLOBAL_RULE_DEACTIVATED",
+      "NodeId": "n3_intervention",
+      "SourceId": "rule_hypoxia_alarm",
+      "Detail": null,
+      "State": {
+        "ActiveScenarioId": "icu_scenario_hypoxia_v1",
+        "CurrentNodeId": "n3_intervention",
+        "ElapsedTime": 1.09686625,
+        "CurrentScore": 130,
+        "HeartRate": 100,
+        "OxygenSaturation": 94,
+        "RespiratoryRate": 24,
+        "BloodPressure": "125/80",
+        "Temperature": 37.0,
+        "Flags": {
+          "assessment_complete": true,
+          "oxygen_adjusted": true,
+          "documentation_1_complete": false,
+          "escalation_complete": false,
+          "documentation_2_complete": false
+        },
+        "ActiveHotspots": [
+          "hs_monitor",
+          "hs_patient",
+          "hs_ventilator",
+          "hs_ehr",
+          "hs_call"
+        ],
+        "MonitorAlert": true
+      },
+      "Fields": null
+    },
+    {
+      "Sequence": 19,
+      "TimestampUtc": "2026-09-18T13:28:39.0847859Z",
+      "ElapsedSeconds": 1.09686625,
+      "EventType": "NODE_ENTER",
+      "NodeId": "n4_gate_documentation_1",
+      "SourceId": "n4_gate_documentation_1",
+      "Detail": "🛑 GATE: Τεκμηρίωση Αξιολόγησης & Παρέμβασης.",
+      "State": {
+        "ActiveScenarioId": "icu_scenario_hypoxia_v1",
+        "CurrentNodeId": "n4_gate_documentation_1",
+        "ElapsedTime": 1.09686625,
+        "CurrentScore": 130,
+        "HeartRate": 100,
+        "OxygenSaturation": 94,
+        "RespiratoryRate": 24,
+        "BloodPressure": "125/80",
+        "Temperature": 37.0,
+        "Flags": {
+          "assessment_complete": true,
+          "oxygen_adjusted": true,
+          "documentation_1_complete": false,
+          "escalation_complete": false,
+          "documentation_2_complete": false
+        },
+        "ActiveHotspots": [
+          "hs_monitor",
+          "hs_patient",
+          "hs_ventilator",
+          "hs_ehr",
+          "hs_call"
+        ],
+        "MonitorAlert": true
+      },
+      "Fields": null
+    },
+    {
+      "Sequence": 20,
+      "TimestampUtc": "2026-09-18T13:28:39.0857854Z",
+      "ElapsedSeconds": 1.09686625,
+      "EventType": "GATE_BLOCKED",
+      "NodeId": "n4_gate_documentation_1",
+      "SourceId": "n4_gate_documentation_1",
+      "Detail": "assessment_form.observation, intervention_form.fiO2_setting",
+      "State": {
+        "ActiveScenarioId": "icu_scenario_hypoxia_v1",
+        "CurrentNodeId": "n4_gate_documentation_1",
+        "ElapsedTime": 1.09686625,
+        "CurrentScore": 130,
+        "HeartRate": 100,
+        "OxygenSaturation": 94,
+        "RespiratoryRate": 24,
+        "BloodPressure": "125/80",
+        "Temperature": 37.0,
+        "Flags": {
+          "assessment_complete": true,
+          "oxygen_adjusted": true,
+          "documentation_1_complete": false,
+          "escalation_complete": false,
+          "documentation_2_complete": false
+        },
+        "ActiveHotspots": [
+          "hs_monitor",
+          "hs_patient",
+          "hs_ventilator",
+          "hs_ehr",
+          "hs_call"
+        ],
+        "MonitorAlert": true
+      },
+      "Fields": null
+    },
+    {
+      "Sequence": 21,
+      "TimestampUtc": "2026-09-18T13:28:39.4065917Z",
+      "ElapsedSeconds": 1.42061651,
+      "EventType": "HOTSPOT_INTERACTION",
+      "NodeId": "n4_gate_documentation_1",
+      "SourceId": "hs_ehr",
+      "Detail": "opened",
+      "State": {
+        "ActiveScenarioId": "icu_scenario_hypoxia_v1",
+        "CurrentNodeId": "n4_gate_documentation_1",
+        "ElapsedTime": 1.42061651,
+        "CurrentScore": 130,
+        "HeartRate": 100,
+        "OxygenSaturation": 94,
+        "RespiratoryRate": 24,
+        "BloodPressure": "125/80",
+        "Temperature": 37.0,
+        "Flags": {
+          "assessment_complete": true,
+          "oxygen_adjusted": true,
+          "documentation_1_complete": false,
+          "escalation_complete": false,
+          "documentation_2_complete": false
+        },
+        "ActiveHotspots": [
+          "hs_monitor",
+          "hs_patient",
+          "hs_ventilator",
+          "hs_ehr",
+          "hs_call"
+        ],
+        "MonitorAlert": true
+      },
+      "Fields": null
+    },
+    {
+      "Sequence": 22,
+      "TimestampUtc": "2026-09-18T13:28:39.4196506Z",
+      "ElapsedSeconds": 1.42061651,
+      "EventType": "HOTSPOT_INTERACTION",
+      "NodeId": "n4_gate_documentation_1",
+      "SourceId": "hs_ehr",
+      "Detail": null,
+      "State": {
+        "ActiveScenarioId": "icu_scenario_hypoxia_v1",
+        "CurrentNodeId": "n4_gate_documentation_1",
+        "ElapsedTime": 1.42061651,
+        "CurrentScore": 130,
+        "HeartRate": 100,
+        "OxygenSaturation": 94,
+        "RespiratoryRate": 24,
+        "BloodPressure": "125/80",
+        "Temperature": 37.0,
+        "Flags": {
+          "assessment_complete": true,
+          "oxygen_adjusted": true,
+          "documentation_1_complete": false,
+          "escalation_complete": false,
+          "documentation_2_complete": false
+        },
+        "ActiveHotspots": [
+          "hs_monitor",
+          "hs_patient",
+          "hs_ventilator",
+          "hs_ehr",
+          "hs_call"
+        ],
+        "MonitorAlert": true
+      },
+      "Fields": null
+    },
+    {
+      "Sequence": 23,
+      "TimestampUtc": "2026-09-18T13:28:39.4196506Z",
+      "ElapsedSeconds": 1.42061651,
+      "EventType": "GATE_BLOCKED",
+      "NodeId": "n4_gate_documentation_1",
+      "SourceId": "n4_gate_documentation_1",
+      "Detail": "assessment_form.observation, intervention_form.fiO2_setting",
+      "State": {
+        "ActiveScenarioId": "icu_scenario_hypoxia_v1",
+        "CurrentNodeId": "n4_gate_documentation_1",
+        "ElapsedTime": 1.42061651,
+        "CurrentScore": 130,
+        "HeartRate": 100,
+        "OxygenSaturation": 94,
+        "RespiratoryRate": 24,
+        "BloodPressure": "125/80",
+        "Temperature": 37.0,
+        "Flags": {
+          "assessment_complete": true,
+          "oxygen_adjusted": true,
+          "documentation_1_complete": false,
+          "escalation_complete": false,
+          "documentation_2_complete": false
+        },
+        "ActiveHotspots": [
+          "hs_monitor",
+          "hs_patient",
+          "hs_ventilator",
+          "hs_ehr",
+          "hs_call"
+        ],
+        "MonitorAlert": true
+      },
+      "Fields": null
+    },
+    {
+      "Sequence": 24,
+      "TimestampUtc": "2026-09-18T13:28:39.8068386Z",
+      "ElapsedSeconds": 1.81938982,
+      "EventType": "EHR_SUBMIT",
+      "NodeId": "n4_gate_documentation_1",
+      "SourceId": "assessment_form",
+      "Detail": "Κλινική Αξιολόγηση",
+      "State": {
+        "ActiveScenarioId": "icu_scenario_hypoxia_v1",
+        "CurrentNodeId": "n4_gate_documentation_1",
+        "ElapsedTime": 1.81938982,
+        "CurrentScore": 130,
+        "HeartRate": 100,
+        "OxygenSaturation": 94,
+        "RespiratoryRate": 24,
+        "BloodPressure": "125/80",
+        "Temperature": 37.0,
+        "Flags": {
+          "assessment_complete": true,
+          "oxygen_adjusted": true,
+          "documentation_1_complete": false,
+          "escalation_complete": false,
+          "documentation_2_complete": false
+        },
+        "ActiveHotspots": [
+          "hs_monitor",
+          "hs_patient",
+          "hs_ventilator",
+          "hs_ehr",
+          "hs_call"
+        ],
+        "MonitorAlert": true
+      },
+      "Fields": {
+        "observation": "Cyanosis and increased respiratory rate observed in the simulation."
+      }
+    },
+    {
+      "Sequence": 25,
+      "TimestampUtc": "2026-09-18T13:28:39.8073658Z",
+      "ElapsedSeconds": 1.81938982,
+      "EventType": "GATE_BLOCKED",
+      "NodeId": "n4_gate_documentation_1",
+      "SourceId": "n4_gate_documentation_1",
+      "Detail": "intervention_form.fiO2_setting",
+      "State": {
+        "ActiveScenarioId": "icu_scenario_hypoxia_v1",
+        "CurrentNodeId": "n4_gate_documentation_1",
+        "ElapsedTime": 1.81938982,
+        "CurrentScore": 130,
+        "HeartRate": 100,
+        "OxygenSaturation": 94,
+        "RespiratoryRate": 24,
+        "BloodPressure": "125/80",
+        "Temperature": 37.0,
+        "Flags": {
+          "assessment_complete": true,
+          "oxygen_adjusted": true,
+          "documentation_1_complete": false,
+          "escalation_complete": false,
+          "documentation_2_complete": false
+        },
+        "ActiveHotspots": [
+          "hs_monitor",
+          "hs_patient",
+          "hs_ventilator",
+          "hs_ehr",
+          "hs_call"
+        ],
+        "MonitorAlert": true
+      },
+      "Fields": null
+    },
+    {
+      "Sequence": 26,
+      "TimestampUtc": "2026-09-18T13:28:39.8122599Z",
+      "ElapsedSeconds": 1.81938982,
+      "EventType": "EHR_SUBMIT",
+      "NodeId": "n4_gate_documentation_1",
+      "SourceId": "intervention_form",
+      "Detail": "Παρεμβάσεις / Ρυθμίσεις",
+      "State": {
+        "ActiveScenarioId": "icu_scenario_hypoxia_v1",
+        "CurrentNodeId": "n4_gate_documentation_1",
+        "ElapsedTime": 1.81938982,
+        "CurrentScore": 130,
+        "HeartRate": 100,
+        "OxygenSaturation": 94,
+        "RespiratoryRate": 24,
+        "BloodPressure": "125/80",
+        "Temperature": 37.0,
+        "Flags": {
+          "assessment_complete": true,
+          "oxygen_adjusted": true,
+          "documentation_1_complete": false,
+          "escalation_complete": false,
+          "documentation_2_complete": false
+        },
+        "ActiveHotspots": [
+          "hs_monitor",
+          "hs_patient",
+          "hs_ventilator",
+          "hs_ehr",
+          "hs_call"
+        ],
+        "MonitorAlert": true
+      },
+      "Fields": {
+        "fiO2_setting": "100%"
+      }
+    },
+    {
+      "Sequence": 27,
+      "TimestampUtc": "2026-09-18T13:28:39.8122599Z",
+      "ElapsedSeconds": 1.81938982,
+      "EventType": "SCORE_CHANGE",
+      "NodeId": "n4_gate_documentation_1",
+      "SourceId": null,
+      "Detail": "130 -> 140",
+      "State": {
+        "ActiveScenarioId": "icu_scenario_hypoxia_v1",
+        "CurrentNodeId": "n4_gate_documentation_1",
+        "ElapsedTime": 1.81938982,
+        "CurrentScore": 140,
+        "HeartRate": 100,
+        "OxygenSaturation": 94,
+        "RespiratoryRate": 24,
+        "BloodPressure": "125/80",
+        "Temperature": 37.0,
+        "Flags": {
+          "assessment_complete": true,
+          "oxygen_adjusted": true,
+          "documentation_1_complete": false,
+          "escalation_complete": false,
+          "documentation_2_complete": false
+        },
+        "ActiveHotspots": [
+          "hs_monitor",
+          "hs_patient",
+          "hs_ventilator",
+          "hs_ehr",
+          "hs_call"
+        ],
+        "MonitorAlert": true
+      },
+      "Fields": null
+    },
+    {
+      "Sequence": 28,
+      "TimestampUtc": "2026-09-18T13:28:39.8122599Z",
+      "ElapsedSeconds": 1.81938982,
+      "EventType": "FLAG_CHANGE",
+      "NodeId": "n4_gate_documentation_1",
+      "SourceId": "documentation_1_complete",
+      "Detail": "True",
+      "State": {
+        "ActiveScenarioId": "icu_scenario_hypoxia_v1",
+        "CurrentNodeId": "n4_gate_documentation_1",
+        "ElapsedTime": 1.81938982,
+        "CurrentScore": 140,
+        "HeartRate": 100,
+        "OxygenSaturation": 94,
+        "RespiratoryRate": 24,
+        "BloodPressure": "125/80",
+        "Temperature": 37.0,
+        "Flags": {
+          "assessment_complete": true,
+          "oxygen_adjusted": true,
+          "documentation_1_complete": true,
+          "escalation_complete": false,
+          "documentation_2_complete": false
+        },
+        "ActiveHotspots": [
+          "hs_monitor",
+          "hs_patient",
+          "hs_ventilator",
+          "hs_ehr",
+          "hs_call"
+        ],
+        "MonitorAlert": true
+      },
+      "Fields": null
+    },
+    {
+      "Sequence": 29,
+      "TimestampUtc": "2026-09-18T13:28:39.8122599Z",
+      "ElapsedSeconds": 1.81938982,
+      "EventType": "GATE_PASSED",
+      "NodeId": "n4_gate_documentation_1",
+      "SourceId": "n4_gate_documentation_1",
+      "Detail": null,
+      "State": {
+        "ActiveScenarioId": "icu_scenario_hypoxia_v1",
+        "CurrentNodeId": "n4_gate_documentation_1",
+        "ElapsedTime": 1.81938982,
+        "CurrentScore": 140,
+        "HeartRate": 100,
+        "OxygenSaturation": 94,
+        "RespiratoryRate": 24,
+        "BloodPressure": "125/80",
+        "Temperature": 37.0,
+        "Flags": {
+          "assessment_complete": true,
+          "oxygen_adjusted": true,
+          "documentation_1_complete": true,
+          "escalation_complete": false,
+          "documentation_2_complete": false
+        },
+        "ActiveHotspots": [
+          "hs_monitor",
+          "hs_patient",
+          "hs_ventilator",
+          "hs_ehr",
+          "hs_call"
+        ],
+        "MonitorAlert": true
+      },
+      "Fields": null
+    },
+    {
+      "Sequence": 30,
+      "TimestampUtc": "2026-09-18T13:28:39.8127887Z",
+      "ElapsedSeconds": 1.81938982,
+      "EventType": "NODE_ENTER",
+      "NodeId": "n5_reassessment",
+      "SourceId": "n5_reassessment",
+      "Detail": "5 λεπτά αργότερα... Η κατάσταση έχει σταθεροποιηθεί (SpO2: 94%), αλλά ο ασθενής παραμένει ταχύπνοος.",
+      "State": {
+        "ActiveScenarioId": "icu_scenario_hypoxia_v1",
+        "CurrentNodeId": "n5_reassessment",
+        "ElapsedTime": 1.81938982,
+        "CurrentScore": 140,
+        "HeartRate": 100,
+        "OxygenSaturation": 94,
+        "RespiratoryRate": 24,
+        "BloodPressure": "125/80",
+        "Temperature": 37.0,
+        "Flags": {
+          "assessment_complete": true,
+          "oxygen_adjusted": true,
+          "documentation_1_complete": true,
+          "escalation_complete": false,
+          "documentation_2_complete": false
+        },
+        "ActiveHotspots": [
+          "hs_monitor",
+          "hs_patient",
+          "hs_ventilator",
+          "hs_ehr",
+          "hs_call"
+        ],
+        "MonitorAlert": true
+      },
+      "Fields": null
+    },
+    {
+      "Sequence": 31,
+      "TimestampUtc": "2026-09-18T13:28:39.8127887Z",
+      "ElapsedSeconds": 1.81938982,
+      "EventType": "EHR_SUBMIT",
+      "NodeId": "n5_reassessment",
+      "SourceId": "intervention_form",
+      "Detail": "Παρεμβάσεις / Ρυθμίσεις",
+      "State": {
+        "ActiveScenarioId": "icu_scenario_hypoxia_v1",
+        "CurrentNodeId": "n5_reassessment",
+        "ElapsedTime": 1.81938982,
+        "CurrentScore": 140,
+        "HeartRate": 100,
+        "OxygenSaturation": 94,
+        "RespiratoryRate": 24,
+        "BloodPressure": "125/80",
+        "Temperature": 37.0,
+        "Flags": {
+          "assessment_complete": true,
+          "oxygen_adjusted": true,
+          "documentation_1_complete": true,
+          "escalation_complete": false,
+          "documentation_2_complete": false
+        },
+        "ActiveHotspots": [
+          "hs_monitor",
+          "hs_patient",
+          "hs_ventilator",
+          "hs_ehr",
+          "hs_call"
+        ],
+        "MonitorAlert": true
+      },
+      "Fields": {
+        "fiO2_setting": "100%"
+      }
+    },
+    {
+      "Sequence": 32,
+      "TimestampUtc": "2026-09-18T13:28:40.1346091Z",
+      "ElapsedSeconds": 2.14937282,
+      "EventType": "HOTSPOT_INTERACTION",
+      "NodeId": "n5_reassessment",
+      "SourceId": "hs_ehr",
+      "Detail": "closed",
+      "State": {
+        "ActiveScenarioId": "icu_scenario_hypoxia_v1",
+        "CurrentNodeId": "n5_reassessment",
+        "ElapsedTime": 2.14937282,
+        "CurrentScore": 140,
+        "HeartRate": 100,
+        "OxygenSaturation": 94,
+        "RespiratoryRate": 24,
+        "BloodPressure": "125/80",
+        "Temperature": 37.0,
+        "Flags": {
+          "assessment_complete": true,
+          "oxygen_adjusted": true,
+          "documentation_1_complete": true,
+          "escalation_complete": false,
+          "documentation_2_complete": false
+        },
+        "ActiveHotspots": [
+          "hs_monitor",
+          "hs_patient",
+          "hs_ventilator",
+          "hs_ehr",
+          "hs_call"
+        ],
+        "MonitorAlert": true
+      },
+      "Fields": null
+    },
+    {
+      "Sequence": 33,
+      "TimestampUtc": "2026-09-18T13:28:40.1346091Z",
+      "ElapsedSeconds": 2.14937282,
+      "EventType": "MESSAGE_CONTINUE",
+      "NodeId": "n5_reassessment",
+      "SourceId": "n5_reassessment",
+      "Detail": null,
+      "State": {
+        "ActiveScenarioId": "icu_scenario_hypoxia_v1",
+        "CurrentNodeId": "n5_reassessment",
+        "ElapsedTime": 2.14937282,
+        "CurrentScore": 140,
+        "HeartRate": 100,
+        "OxygenSaturation": 94,
+        "RespiratoryRate": 24,
+        "BloodPressure": "125/80",
+        "Temperature": 37.0,
+        "Flags": {
+          "assessment_complete": true,
+          "oxygen_adjusted": true,
+          "documentation_1_complete": true,
+          "escalation_complete": false,
+          "documentation_2_complete": false
+        },
+        "ActiveHotspots": [
+          "hs_monitor",
+          "hs_patient",
+          "hs_ventilator",
+          "hs_ehr",
+          "hs_call"
+        ],
+        "MonitorAlert": true
+      },
+      "Fields": null
+    },
+    {
+      "Sequence": 34,
+      "TimestampUtc": "2026-09-18T13:28:40.1356080Z",
+      "ElapsedSeconds": 2.14937282,
+      "EventType": "NODE_ENTER",
+      "NodeId": "n6_escalation_decision",
+      "SourceId": "n6_escalation_decision",
+      "Detail": "Χρειάζεται περαιτέρω ενέργεια;",
+      "State": {
+        "ActiveScenarioId": "icu_scenario_hypoxia_v1",
+        "CurrentNodeId": "n6_escalation_decision",
+        "ElapsedTime": 2.14937282,
+        "CurrentScore": 140,
+        "HeartRate": 100,
+        "OxygenSaturation": 94,
+        "RespiratoryRate": 24,
+        "BloodPressure": "125/80",
+        "Temperature": 37.0,
+        "Flags": {
+          "assessment_complete": true,
+          "oxygen_adjusted": true,
+          "documentation_1_complete": true,
+          "escalation_complete": false,
+          "documentation_2_complete": false
+        },
+        "ActiveHotspots": [
+          "hs_monitor",
+          "hs_patient",
+          "hs_ventilator",
+          "hs_ehr",
+          "hs_call"
+        ],
+        "MonitorAlert": true
+      },
+      "Fields": null
+    },
+    {
+      "Sequence": 35,
+      "TimestampUtc": "2026-09-18T13:28:40.1356080Z",
+      "ElapsedSeconds": 2.14937282,
+      "EventType": "HOTSPOT_INTERACTION",
+      "NodeId": "n6_escalation_decision",
+      "SourceId": "hs_call",
+      "Detail": null,
+      "State": {
+        "ActiveScenarioId": "icu_scenario_hypoxia_v1",
+        "CurrentNodeId": "n6_escalation_decision",
+        "ElapsedTime": 2.14937282,
+        "CurrentScore": 140,
+        "HeartRate": 100,
+        "OxygenSaturation": 94,
+        "RespiratoryRate": 24,
+        "BloodPressure": "125/80",
+        "Temperature": 37.0,
+        "Flags": {
+          "assessment_complete": true,
+          "oxygen_adjusted": true,
+          "documentation_1_complete": true,
+          "escalation_complete": false,
+          "documentation_2_complete": false
+        },
+        "ActiveHotspots": [
+          "hs_monitor",
+          "hs_patient",
+          "hs_ventilator",
+          "hs_ehr",
+          "hs_call"
+        ],
+        "MonitorAlert": true
+      },
+      "Fields": null
+    },
+    {
+      "Sequence": 36,
+      "TimestampUtc": "2026-09-18T13:28:40.1356080Z",
+      "ElapsedSeconds": 2.14937282,
+      "EventType": "OPTION_SELECTED",
+      "NodeId": "n6_escalation_decision",
+      "SourceId": "opt_call_doc",
+      "Detail": "Κλήση Ιατρού (Κλιμάκωση)",
+      "State": {
+        "ActiveScenarioId": "icu_scenario_hypoxia_v1",
+        "CurrentNodeId": "n6_escalation_decision",
+        "ElapsedTime": 2.14937282,
+        "CurrentScore": 140,
+        "HeartRate": 100,
+        "OxygenSaturation": 94,
+        "RespiratoryRate": 24,
+        "BloodPressure": "125/80",
+        "Temperature": 37.0,
+        "Flags": {
+          "assessment_complete": true,
+          "oxygen_adjusted": true,
+          "documentation_1_complete": true,
+          "escalation_complete": false,
+          "documentation_2_complete": false
+        },
+        "ActiveHotspots": [
+          "hs_monitor",
+          "hs_patient",
+          "hs_ventilator",
+          "hs_ehr",
+          "hs_call"
+        ],
+        "MonitorAlert": true
+      },
+      "Fields": {
+        "hotspot_id": "hs_call"
+      }
+    },
+    {
+      "Sequence": 37,
+      "TimestampUtc": "2026-09-18T13:28:40.1356080Z",
+      "ElapsedSeconds": 2.14937282,
+      "EventType": "SCORE_CHANGE",
+      "NodeId": "n6_escalation_decision",
+      "SourceId": null,
+      "Detail": "140 -> 150",
+      "State": {
+        "ActiveScenarioId": "icu_scenario_hypoxia_v1",
+        "CurrentNodeId": "n6_escalation_decision",
+        "ElapsedTime": 2.14937282,
+        "CurrentScore": 150,
+        "HeartRate": 100,
+        "OxygenSaturation": 94,
+        "RespiratoryRate": 24,
+        "BloodPressure": "125/80",
+        "Temperature": 37.0,
+        "Flags": {
+          "assessment_complete": true,
+          "oxygen_adjusted": true,
+          "documentation_1_complete": true,
+          "escalation_complete": false,
+          "documentation_2_complete": false
+        },
+        "ActiveHotspots": [
+          "hs_monitor",
+          "hs_patient",
+          "hs_ventilator",
+          "hs_ehr",
+          "hs_call"
+        ],
+        "MonitorAlert": true
+      },
+      "Fields": null
+    },
+    {
+      "Sequence": 38,
+      "TimestampUtc": "2026-09-18T13:28:40.1356080Z",
+      "ElapsedSeconds": 2.14937282,
+      "EventType": "FLAG_CHANGE",
+      "NodeId": "n6_escalation_decision",
+      "SourceId": "escalation_complete",
+      "Detail": "True",
+      "State": {
+        "ActiveScenarioId": "icu_scenario_hypoxia_v1",
+        "CurrentNodeId": "n6_escalation_decision",
+        "ElapsedTime": 2.14937282,
+        "CurrentScore": 150,
+        "HeartRate": 100,
+        "OxygenSaturation": 94,
+        "RespiratoryRate": 24,
+        "BloodPressure": "125/80",
+        "Temperature": 37.0,
+        "Flags": {
+          "assessment_complete": true,
+          "oxygen_adjusted": true,
+          "documentation_1_complete": true,
+          "escalation_complete": true,
+          "documentation_2_complete": false
+        },
+        "ActiveHotspots": [
+          "hs_monitor",
+          "hs_patient",
+          "hs_ventilator",
+          "hs_ehr",
+          "hs_call"
+        ],
+        "MonitorAlert": true
+      },
+      "Fields": null
+    },
+    {
+      "Sequence": 39,
+      "TimestampUtc": "2026-09-18T13:28:40.1356080Z",
+      "ElapsedSeconds": 2.14937282,
+      "EventType": "NODE_ENTER",
+      "NodeId": "n7_gate_documentation_2",
+      "SourceId": "n7_gate_documentation_2",
+      "Detail": "🛑 GATE: Καταγραφή Επικοινωνίας.",
+      "State": {
+        "ActiveScenarioId": "icu_scenario_hypoxia_v1",
+        "CurrentNodeId": "n7_gate_documentation_2",
+        "ElapsedTime": 2.14937282,
+        "CurrentScore": 150,
+        "HeartRate": 100,
+        "OxygenSaturation": 94,
+        "RespiratoryRate": 24,
+        "BloodPressure": "125/80",
+        "Temperature": 37.0,
+        "Flags": {
+          "assessment_complete": true,
+          "oxygen_adjusted": true,
+          "documentation_1_complete": true,
+          "escalation_complete": true,
+          "documentation_2_complete": false
+        },
+        "ActiveHotspots": [
+          "hs_monitor",
+          "hs_patient",
+          "hs_ventilator",
+          "hs_ehr",
+          "hs_call"
+        ],
+        "MonitorAlert": true
+      },
+      "Fields": null
+    },
+    {
+      "Sequence": 40,
+      "TimestampUtc": "2026-09-18T13:28:40.1356080Z",
+      "ElapsedSeconds": 2.14937282,
+      "EventType": "GATE_BLOCKED",
+      "NodeId": "n7_gate_documentation_2",
+      "SourceId": "n7_gate_documentation_2",
+      "Detail": "communication_log.recipient, communication_log.outcome",
+      "State": {
+        "ActiveScenarioId": "icu_scenario_hypoxia_v1",
+        "CurrentNodeId": "n7_gate_documentation_2",
+        "ElapsedTime": 2.14937282,
+        "CurrentScore": 150,
+        "HeartRate": 100,
+        "OxygenSaturation": 94,
+        "RespiratoryRate": 24,
+        "BloodPressure": "125/80",
+        "Temperature": 37.0,
+        "Flags": {
+          "assessment_complete": true,
+          "oxygen_adjusted": true,
+          "documentation_1_complete": true,
+          "escalation_complete": true,
+          "documentation_2_complete": false
+        },
+        "ActiveHotspots": [
+          "hs_monitor",
+          "hs_patient",
+          "hs_ventilator",
+          "hs_ehr",
+          "hs_call"
+        ],
+        "MonitorAlert": true
+      },
+      "Fields": null
+    },
+    {
+      "Sequence": 41,
+      "TimestampUtc": "2026-09-18T13:28:40.1356080Z",
+      "ElapsedSeconds": 2.14937282,
+      "EventType": "HOTSPOT_INTERACTION",
+      "NodeId": "n7_gate_documentation_2",
+      "SourceId": "hs_ehr",
+      "Detail": "opened",
+      "State": {
+        "ActiveScenarioId": "icu_scenario_hypoxia_v1",
+        "CurrentNodeId": "n7_gate_documentation_2",
+        "ElapsedTime": 2.14937282,
+        "CurrentScore": 150,
+        "HeartRate": 100,
+        "OxygenSaturation": 94,
+        "RespiratoryRate": 24,
+        "BloodPressure": "125/80",
+        "Temperature": 37.0,
+        "Flags": {
+          "assessment_complete": true,
+          "oxygen_adjusted": true,
+          "documentation_1_complete": true,
+          "escalation_complete": true,
+          "documentation_2_complete": false
+        },
+        "ActiveHotspots": [
+          "hs_monitor",
+          "hs_patient",
+          "hs_ventilator",
+          "hs_ehr",
+          "hs_call"
+        ],
+        "MonitorAlert": true
+      },
+      "Fields": null
+    },
+    {
+      "Sequence": 42,
+      "TimestampUtc": "2026-09-18T13:28:40.1366081Z",
+      "ElapsedSeconds": 2.14937282,
+      "EventType": "HOTSPOT_INTERACTION",
+      "NodeId": "n7_gate_documentation_2",
+      "SourceId": "hs_ehr",
+      "Detail": null,
+      "State": {
+        "ActiveScenarioId": "icu_scenario_hypoxia_v1",
+        "CurrentNodeId": "n7_gate_documentation_2",
+        "ElapsedTime": 2.14937282,
+        "CurrentScore": 150,
+        "HeartRate": 100,
+        "OxygenSaturation": 94,
+        "RespiratoryRate": 24,
+        "BloodPressure": "125/80",
+        "Temperature": 37.0,
+        "Flags": {
+          "assessment_complete": true,
+          "oxygen_adjusted": true,
+          "documentation_1_complete": true,
+          "escalation_complete": true,
+          "documentation_2_complete": false
+        },
+        "ActiveHotspots": [
+          "hs_monitor",
+          "hs_patient",
+          "hs_ventilator",
+          "hs_ehr",
+          "hs_call"
+        ],
+        "MonitorAlert": true
+      },
+      "Fields": null
+    },
+    {
+      "Sequence": 43,
+      "TimestampUtc": "2026-09-18T13:28:40.1366081Z",
+      "ElapsedSeconds": 2.14937282,
+      "EventType": "GATE_BLOCKED",
+      "NodeId": "n7_gate_documentation_2",
+      "SourceId": "n7_gate_documentation_2",
+      "Detail": "communication_log.recipient, communication_log.outcome",
+      "State": {
+        "ActiveScenarioId": "icu_scenario_hypoxia_v1",
+        "CurrentNodeId": "n7_gate_documentation_2",
+        "ElapsedTime": 2.14937282,
+        "CurrentScore": 150,
+        "HeartRate": 100,
+        "OxygenSaturation": 94,
+        "RespiratoryRate": 24,
+        "BloodPressure": "125/80",
+        "Temperature": 37.0,
+        "Flags": {
+          "assessment_complete": true,
+          "oxygen_adjusted": true,
+          "documentation_1_complete": true,
+          "escalation_complete": true,
+          "documentation_2_complete": false
+        },
+        "ActiveHotspots": [
+          "hs_monitor",
+          "hs_patient",
+          "hs_ventilator",
+          "hs_ehr",
+          "hs_call"
+        ],
+        "MonitorAlert": true
+      },
+      "Fields": null
+    },
+    {
+      "Sequence": 44,
+      "TimestampUtc": "2026-09-18T13:28:40.1421184Z",
+      "ElapsedSeconds": 2.155529,
+      "EventType": "EHR_SUBMIT",
+      "NodeId": "n7_gate_documentation_2",
+      "SourceId": "communication_log",
+      "Detail": "Ημερολόγιο Επικοινωνίας",
+      "State": {
+        "ActiveScenarioId": "icu_scenario_hypoxia_v1",
+        "CurrentNodeId": "n7_gate_documentation_2",
+        "ElapsedTime": 2.155529,
+        "CurrentScore": 150,
+        "HeartRate": 100,
+        "OxygenSaturation": 94,
+        "RespiratoryRate": 24,
+        "BloodPressure": "125/80",
+        "Temperature": 37.0,
+        "Flags": {
+          "assessment_complete": true,
+          "oxygen_adjusted": true,
+          "documentation_1_complete": true,
+          "escalation_complete": true,
+          "documentation_2_complete": false
+        },
+        "ActiveHotspots": [
+          "hs_monitor",
+          "hs_patient",
+          "hs_ventilator",
+          "hs_ehr",
+          "hs_call"
+        ],
+        "MonitorAlert": true
+      },
+      "Fields": {
+        "recipient": "On-call physician (simulated)",
+        "outcome": "Simulated physician notified; reassessment requested."
+      }
+    },
+    {
+      "Sequence": 45,
+      "TimestampUtc": "2026-09-18T13:28:40.1421184Z",
+      "ElapsedSeconds": 2.155529,
+      "EventType": "SCORE_CHANGE",
+      "NodeId": "n7_gate_documentation_2",
+      "SourceId": null,
+      "Detail": "150 -> 155",
+      "State": {
+        "ActiveScenarioId": "icu_scenario_hypoxia_v1",
+        "CurrentNodeId": "n7_gate_documentation_2",
+        "ElapsedTime": 2.155529,
+        "CurrentScore": 155,
+        "HeartRate": 100,
+        "OxygenSaturation": 94,
+        "RespiratoryRate": 24,
+        "BloodPressure": "125/80",
+        "Temperature": 37.0,
+        "Flags": {
+          "assessment_complete": true,
+          "oxygen_adjusted": true,
+          "documentation_1_complete": true,
+          "escalation_complete": true,
+          "documentation_2_complete": false
+        },
+        "ActiveHotspots": [
+          "hs_monitor",
+          "hs_patient",
+          "hs_ventilator",
+          "hs_ehr",
+          "hs_call"
+        ],
+        "MonitorAlert": true
+      },
+      "Fields": null
+    },
+    {
+      "Sequence": 46,
+      "TimestampUtc": "2026-09-18T13:28:40.1421184Z",
+      "ElapsedSeconds": 2.155529,
+      "EventType": "FLAG_CHANGE",
+      "NodeId": "n7_gate_documentation_2",
+      "SourceId": "documentation_2_complete",
+      "Detail": "True",
+      "State": {
+        "ActiveScenarioId": "icu_scenario_hypoxia_v1",
+        "CurrentNodeId": "n7_gate_documentation_2",
+        "ElapsedTime": 2.155529,
+        "CurrentScore": 155,
+        "HeartRate": 100,
+        "OxygenSaturation": 94,
+        "RespiratoryRate": 24,
+        "BloodPressure": "125/80",
+        "Temperature": 37.0,
+        "Flags": {
+          "assessment_complete": true,
+          "oxygen_adjusted": true,
+          "documentation_1_complete": true,
+          "escalation_complete": true,
+          "documentation_2_complete": true
+        },
+        "ActiveHotspots": [
+          "hs_monitor",
+          "hs_patient",
+          "hs_ventilator",
+          "hs_ehr",
+          "hs_call"
+        ],
+        "MonitorAlert": true
+      },
+      "Fields": null
+    },
+    {
+      "Sequence": 47,
+      "TimestampUtc": "2026-09-18T13:28:40.1421184Z",
+      "ElapsedSeconds": 2.155529,
+      "EventType": "GATE_PASSED",
+      "NodeId": "n7_gate_documentation_2",
+      "SourceId": "n7_gate_documentation_2",
+      "Detail": null,
+      "State": {
+        "ActiveScenarioId": "icu_scenario_hypoxia_v1",
+        "CurrentNodeId": "n7_gate_documentation_2",
+        "ElapsedTime": 2.155529,
+        "CurrentScore": 155,
+        "HeartRate": 100,
+        "OxygenSaturation": 94,
+        "RespiratoryRate": 24,
+        "BloodPressure": "125/80",
+        "Temperature": 37.0,
+        "Flags": {
+          "assessment_complete": true,
+          "oxygen_adjusted": true,
+          "documentation_1_complete": true,
+          "escalation_complete": true,
+          "documentation_2_complete": true
+        },
+        "ActiveHotspots": [
+          "hs_monitor",
+          "hs_patient",
+          "hs_ventilator",
+          "hs_ehr",
+          "hs_call"
+        ],
+        "MonitorAlert": true
+      },
+      "Fields": null
+    },
+    {
+      "Sequence": 48,
+      "TimestampUtc": "2026-09-18T13:28:40.1421184Z",
+      "ElapsedSeconds": 2.155529,
+      "EventType": "NODE_ENTER",
+      "NodeId": "n8_end_scenario",
+      "SourceId": "n8_end_scenario",
+      "Detail": "Το σενάριο ολοκληρώθηκε.",
+      "State": {
+        "ActiveScenarioId": "icu_scenario_hypoxia_v1",
+        "CurrentNodeId": "n8_end_scenario",
+        "ElapsedTime": 2.155529,
+        "CurrentScore": 155,
+        "HeartRate": 100,
+        "OxygenSaturation": 94,
+        "RespiratoryRate": 24,
+        "BloodPressure": "125/80",
+        "Temperature": 37.0,
+        "Flags": {
+          "assessment_complete": true,
+          "oxygen_adjusted": true,
+          "documentation_1_complete": true,
+          "escalation_complete": true,
+          "documentation_2_complete": true
+        },
+        "ActiveHotspots": [
+          "hs_monitor",
+          "hs_patient",
+          "hs_ventilator",
+          "hs_ehr",
+          "hs_call"
+        ],
+        "MonitorAlert": true
+      },
+      "Fields": null
+    },
+    {
+      "Sequence": 49,
+      "TimestampUtc": "2026-09-18T13:28:40.1421184Z",
+      "ElapsedSeconds": 2.155529,
+      "EventType": "SCENARIO_COMPLETED",
+      "NodeId": "n8_end_scenario",
+      "SourceId": "n8_end_scenario",
+      "Detail": null,
+      "State": {
+        "ActiveScenarioId": "icu_scenario_hypoxia_v1",
+        "CurrentNodeId": "n8_end_scenario",
+        "ElapsedTime": 2.155529,
+        "CurrentScore": 155,
+        "HeartRate": 100,
+        "OxygenSaturation": 94,
+        "RespiratoryRate": 24,
+        "BloodPressure": "125/80",
+        "Temperature": 37.0,
+        "Flags": {
+          "assessment_complete": true,
+          "oxygen_adjusted": true,
+          "documentation_1_complete": true,
+          "escalation_complete": true,
+          "documentation_2_complete": true
+        },
+        "ActiveHotspots": [
+          "hs_monitor",
+          "hs_patient",
+          "hs_ventilator",
+          "hs_ehr",
+          "hs_call"
+        ],
+        "MonitorAlert": true
+      },
+      "Fields": null
+    }
+  ]
+}

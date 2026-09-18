@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using Newtonsoft.Json.Linq;
 
 namespace ICUSimulation.Scenarios
@@ -159,6 +160,20 @@ namespace ICUSimulation.Scenarios
 
         private bool Compare(JToken currentValue, string comparisonOperator, JToken expectedValue)
         {
+            try
+            {
+                return CompareValues(currentValue, comparisonOperator, expectedValue);
+            }
+            catch (Exception exception) when (exception is FormatException || exception is InvalidCastException ||
+                exception is ArgumentException || exception is OverflowException)
+            {
+                WarningRaised?.Invoke($"Invalid comparison '{comparisonOperator}': {exception.Message}");
+                return false;
+            }
+        }
+
+        private bool CompareValues(JToken currentValue, string comparisonOperator, JToken expectedValue)
+        {
             string normalizedOperator = comparisonOperator?.Trim().ToLowerInvariant();
 
             if (normalizedOperator == "eq" || normalizedOperator == "neq")
@@ -209,7 +224,7 @@ namespace ICUSimulation.Scenarios
         private static bool TryGetNumber(JToken token, out double value)
         {
             value = 0d;
-            if (token == null)
+            if (!(token is JValue))
             {
                 return false;
             }
@@ -217,10 +232,12 @@ namespace ICUSimulation.Scenarios
             if (token.Type == JTokenType.Integer || token.Type == JTokenType.Float)
             {
                 value = token.Value<double>();
-                return true;
+                return !double.IsNaN(value) && !double.IsInfinity(value);
             }
 
-            return double.TryParse(token.Value<string>(), out value);
+            return token.Type == JTokenType.String &&
+                double.TryParse(token.Value<string>(), NumberStyles.Float, CultureInfo.InvariantCulture, out value) &&
+                !double.IsNaN(value) && !double.IsInfinity(value);
         }
     }
 }

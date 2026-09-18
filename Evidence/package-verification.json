@@ -1,0 +1,32 @@
+{
+  "archive": "C:\\Users\\kitli\\Desktop\\Projects\\Unity\\ICU-XR-Simulation\\output\\ICU_Submission.zip",
+  "bytes": 249907481,
+  "passed": true,
+  "errors": [],
+  "sha256": "269f154c42768723151f092a7a5dcfd6a876b5cc8ea0ef5d5ff03b8d087e76b3",
+  "outer_crc_passed": true,
+  "outer_files": 232,
+  "source_crc_passed": true,
+  "source_files": 532,
+  "source_hashes_matched": 532,
+  "source_outer_evidence_files_compared": 25,
+  "application_files": 189,
+  "application_hashes_matched": 189,
+  "manuals_hash_matched": 4,
+  "runtime_datasets": {
+    "Runtime": {
+      "checks": 38,
+      "completed_utc": "2026-09-18T13:06:48.9807153Z",
+      "score": 155,
+      "events": 49
+    },
+    "FinalRuntime": {
+      "checks": 38,
+      "completed_utc": "2026-09-18T13:28:41.7075240Z",
+      "score": 155,
+      "events": 49
+    }
+  },
+  "excluded_paths_found": [],
+  "verified_utc": "2026-09-18T13:37:21.645053+00:00"
+}

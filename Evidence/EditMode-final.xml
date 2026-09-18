@@ -1,0 +1,597 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="91" result="Passed" total="91" passed="91" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-09-18 12:24:50Z" end-time="2026-09-18 12:24:51Z" duration="0.6722054">
+  <test-suite type="TestSuite" id="1000" name="ICU-XR-Simulation" fullname="ICU-XR-Simulation" runstate="Runnable" testcasecount="91" result="Passed" start-time="2026-09-18 12:24:50Z" end-time="2026-09-18 12:24:51Z" duration="0.672205" total="91" passed="91" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="1100" name="ICUSimulation.Scenarios.EditModeTests.dll" fullname="C:/Users/kitli/Desktop/Projects/Unity/ICU-XR-Simulation/Library/ScriptAssemblies/ICUSimulation.Scenarios.EditModeTests.dll" runstate="Runnable" testcasecount="91" result="Passed" start-time="2026-09-18 12:24:50Z" end-time="2026-09-18 12:24:51Z" duration="0.659200" total="91" passed="91" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="35120" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestSuite" id="1101" name="ICUSimulation" fullname="ICUSimulation" runstate="Runnable" testcasecount="91" result="Passed" start-time="2026-09-18 12:24:50Z" end-time="2026-09-18 12:24:51Z" duration="0.658529" total="91" passed="91" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1102" name="Tests" fullname="ICUSimulation.Tests" runstate="Runnable" testcasecount="91" result="Passed" start-time="2026-09-18 12:24:50Z" end-time="2026-09-18 12:24:51Z" duration="0.658268" total="91" passed="91" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestSuite" id="1103" name="EditMode" fullname="ICUSimulation.Tests.EditMode" runstate="Runnable" testcasecount="91" result="Passed" start-time="2026-09-18 12:24:50Z" end-time="2026-09-18 12:24:51Z" duration="0.657672" total="91" passed="91" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="TestFixture" id="1001" name="EhrRuntimeTests" fullname="ICUSimulation.Tests.EditMode.EhrRuntimeTests" classname="ICUSimulation.Tests.EditMode.EhrRuntimeTests" runstate="Runnable" testcasecount="21" result="Passed" start-time="2026-09-18 12:24:50Z" end-time="2026-09-18 12:24:51Z" duration="0.489278" total="21" passed="21" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1016" name="CommunicationGate_PassAppliesDocumentationFlag" fullname="ICUSimulation.Tests.EditMode.EhrRuntimeTests.CommunicationGate_PassAppliesDocumentationFlag" methodname="CommunicationGate_PassAppliesDocumentationFlag" classname="ICUSimulation.Tests.EditMode.EhrRuntimeTests" runstate="Runnable" seed="259914016" result="Passed" start-time="2026-09-18 12:24:50Z" end-time="2026-09-18 12:24:51Z" duration="0.426712" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1017" name="CommunicationGate_PassAppliesScoreDelta" fullname="ICUSimulation.Tests.EditMode.EhrRuntimeTests.CommunicationGate_PassAppliesScoreDelta" methodname="CommunicationGate_PassAppliesScoreDelta" classname="ICUSimulation.Tests.EditMode.EhrRuntimeTests" runstate="Runnable" seed="1361811828" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.001911" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1015" name="CommunicationGate_PassesWithRecipientAndOutcome" fullname="ICUSimulation.Tests.EditMode.EhrRuntimeTests.CommunicationGate_PassesWithRecipientAndOutcome" methodname="CommunicationGate_PassesWithRecipientAndOutcome" classname="ICUSimulation.Tests.EditMode.EhrRuntimeTests" runstate="Runnable" seed="1202265835" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.000987" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1014" name="CommunicationGate_RemainsBlockedWithOutcomeOnly" fullname="ICUSimulation.Tests.EditMode.EhrRuntimeTests.CommunicationGate_RemainsBlockedWithOutcomeOnly" methodname="CommunicationGate_RemainsBlockedWithOutcomeOnly" classname="ICUSimulation.Tests.EditMode.EhrRuntimeTests" runstate="Runnable" seed="214983786" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.001802" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1012" name="CommunicationGate_RemainsBlockedWithoutFields" fullname="ICUSimulation.Tests.EditMode.EhrRuntimeTests.CommunicationGate_RemainsBlockedWithoutFields" methodname="CommunicationGate_RemainsBlockedWithoutFields" classname="ICUSimulation.Tests.EditMode.EhrRuntimeTests" runstate="Runnable" seed="1465901487" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.000948" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1013" name="CommunicationGate_RemainsBlockedWithRecipientOnly" fullname="ICUSimulation.Tests.EditMode.EhrRuntimeTests.CommunicationGate_RemainsBlockedWithRecipientOnly" methodname="CommunicationGate_RemainsBlockedWithRecipientOnly" classname="ICUSimulation.Tests.EditMode.EhrRuntimeTests" runstate="Runnable" seed="387668100" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.001128" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1020" name="Documentation_DoesNotLeakIntoAnotherScenarioSession" fullname="ICUSimulation.Tests.EditMode.EhrRuntimeTests.Documentation_DoesNotLeakIntoAnotherScenarioSession" methodname="Documentation_DoesNotLeakIntoAnotherScenarioSession" classname="ICUSimulation.Tests.EditMode.EhrRuntimeTests" runstate="Runnable" seed="1808432511" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.000774" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1005" name="DocumentationStore_ResetClearsDocumentation" fullname="ICUSimulation.Tests.EditMode.EhrRuntimeTests.DocumentationStore_ResetClearsDocumentation" methodname="DocumentationStore_ResetClearsDocumentation" classname="ICUSimulation.Tests.EditMode.EhrRuntimeTests" runstate="Runnable" seed="708046297" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.000844" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1004" name="DocumentationStore_SavesAndReturnsFieldValues" fullname="ICUSimulation.Tests.EditMode.EhrRuntimeTests.DocumentationStore_SavesAndReturnsFieldValues" methodname="DocumentationStore_SavesAndReturnsFieldValues" classname="ICUSimulation.Tests.EditMode.EhrRuntimeTests" runstate="Runnable" seed="664286817" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.000964" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1002" name="EhrConfiguration_IsReadFromUniversityJson" fullname="ICUSimulation.Tests.EditMode.EhrRuntimeTests.EhrConfiguration_IsReadFromUniversityJson" methodname="EhrConfiguration_IsReadFromUniversityJson" classname="ICUSimulation.Tests.EditMode.EhrRuntimeTests" runstate="Runnable" seed="1396707423" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.002698" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1010" name="FirstGate_PassAppliesDocumentationFlag" fullname="ICUSimulation.Tests.EditMode.EhrRuntimeTests.FirstGate_PassAppliesDocumentationFlag" methodname="FirstGate_PassAppliesDocumentationFlag" classname="ICUSimulation.Tests.EditMode.EhrRuntimeTests" runstate="Runnable" seed="1983373409" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.001036" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1011" name="FirstGate_PassAppliesScoreDelta" fullname="ICUSimulation.Tests.EditMode.EhrRuntimeTests.FirstGate_PassAppliesScoreDelta" methodname="FirstGate_PassAppliesScoreDelta" classname="ICUSimulation.Tests.EditMode.EhrRuntimeTests" runstate="Runnable" seed="157497578" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.001372" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1009" name="FirstGate_PassesWhenBothRequiredFieldsExist" fullname="ICUSimulation.Tests.EditMode.EhrRuntimeTests.FirstGate_PassesWhenBothRequiredFieldsExist" methodname="FirstGate_PassesWhenBothRequiredFieldsExist" classname="ICUSimulation.Tests.EditMode.EhrRuntimeTests" runstate="Runnable" seed="691852999" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.000936" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1006" name="FirstGate_RemainsBlockedWithNoDocumentation" fullname="ICUSimulation.Tests.EditMode.EhrRuntimeTests.FirstGate_RemainsBlockedWithNoDocumentation" methodname="FirstGate_RemainsBlockedWithNoDocumentation" classname="ICUSimulation.Tests.EditMode.EhrRuntimeTests" runstate="Runnable" seed="649655006" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.001286" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1008" name="FirstGate_RemainsBlockedWithOnlyFio2Setting" fullname="ICUSimulation.Tests.EditMode.EhrRuntimeTests.FirstGate_RemainsBlockedWithOnlyFio2Setting" methodname="FirstGate_RemainsBlockedWithOnlyFio2Setting" classname="ICUSimulation.Tests.EditMode.EhrRuntimeTests" runstate="Runnable" seed="1844921825" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.000969" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1007" name="FirstGate_RemainsBlockedWithOnlyObservation" fullname="ICUSimulation.Tests.EditMode.EhrRuntimeTests.FirstGate_RemainsBlockedWithOnlyObservation" methodname="FirstGate_RemainsBlockedWithOnlyObservation" classname="ICUSimulation.Tests.EditMode.EhrRuntimeTests" runstate="Runnable" seed="402178039" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.001422" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1021" name="GatePass_EventOccursOnlyOnce" fullname="ICUSimulation.Tests.EditMode.EhrRuntimeTests.GatePass_EventOccursOnlyOnce" methodname="GatePass_EventOccursOnlyOnce" classname="ICUSimulation.Tests.EditMode.EhrRuntimeTests" runstate="Runnable" seed="352610287" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.001681" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1018" name="OptionalConfiguredFields_AreNotRequiredForGatePass" fullname="ICUSimulation.Tests.EditMode.EhrRuntimeTests.OptionalConfiguredFields_AreNotRequiredForGatePass" methodname="OptionalConfiguredFields_AreNotRequiredForGatePass" classname="ICUSimulation.Tests.EditMode.EhrRuntimeTests" runstate="Runnable" seed="602278547" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.001548" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1022" name="RealDocumentationResolver_CompletesBothGatesWithoutDebugBypass" fullname="ICUSimulation.Tests.EditMode.EhrRuntimeTests.RealDocumentationResolver_CompletesBothGatesWithoutDebugBypass" methodname="RealDocumentationResolver_CompletesBothGatesWithoutDebugBypass" classname="ICUSimulation.Tests.EditMode.EhrRuntimeTests" runstate="Runnable" seed="909483795" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.001480" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1019" name="ScenarioReset_RemovesAllDocumentation" fullname="ICUSimulation.Tests.EditMode.EhrRuntimeTests.ScenarioReset_RemovesAllDocumentation" methodname="ScenarioReset_RemovesAllDocumentation" classname="ICUSimulation.Tests.EditMode.EhrRuntimeTests" runstate="Runnable" seed="375325377" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.001410" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1003" name="UniversityForms_AreDiscoveredFromConfiguration" fullname="ICUSimulation.Tests.EditMode.EhrRuntimeTests.UniversityForms_AreDiscoveredFromConfiguration" methodname="UniversityForms_AreDiscoveredFromConfiguration" classname="ICUSimulation.Tests.EditMode.EhrRuntimeTests" runstate="Runnable" seed="723038151" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.002494" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1023" name="ScenarioDataTests" fullname="ICUSimulation.Tests.EditMode.ScenarioDataTests" classname="ICUSimulation.Tests.EditMode.ScenarioDataTests" runstate="Runnable" testcasecount="32" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.062441" total="32" passed="32" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1031" name="BrokenNextNodeReference_FailsValidation" fullname="ICUSimulation.Tests.EditMode.ScenarioDataTests.BrokenNextNodeReference_FailsValidation" methodname="BrokenNextNodeReference_FailsValidation" classname="ICUSimulation.Tests.EditMode.ScenarioDataTests" runstate="Runnable" seed="1282440911" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.001796" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1034" name="Discovery_FindsMultipleValidJsonFilesWithoutHardcodedNames" fullname="ICUSimulation.Tests.EditMode.ScenarioDataTests.Discovery_FindsMultipleValidJsonFilesWithoutHardcodedNames" methodname="Discovery_FindsMultipleValidJsonFilesWithoutHardcodedNames" classname="ICUSimulation.Tests.EditMode.ScenarioDataTests" runstate="Runnable" seed="830875802" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.017655" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1030" name="DuplicateNodeId_FailsValidation" fullname="ICUSimulation.Tests.EditMode.ScenarioDataTests.DuplicateNodeId_FailsValidation" methodname="DuplicateNodeId_FailsValidation" classname="ICUSimulation.Tests.EditMode.ScenarioDataTests" runstate="Runnable" seed="1644016643" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.000922" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1040" name="EmptyDecisionOrUnknownHotspot_FailsBeforeRuntime" fullname="ICUSimulation.Tests.EditMode.ScenarioDataTests.EmptyDecisionOrUnknownHotspot_FailsBeforeRuntime" methodname="EmptyDecisionOrUnknownHotspot_FailsBeforeRuntime" classname="ICUSimulation.Tests.EditMode.ScenarioDataTests" runstate="Runnable" seed="296461571" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.000878" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1043" name="GateOnlyCycle_FailsBeforeSynchronousInfiniteRecursion" fullname="ICUSimulation.Tests.EditMode.ScenarioDataTests.GateOnlyCycle_FailsBeforeSynchronousInfiniteRecursion" methodname="GateOnlyCycle_FailsBeforeSynchronousInfiniteRecursion" classname="ICUSimulation.Tests.EditMode.ScenarioDataTests" runstate="Runnable" seed="1892860162" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.000694" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-suite type="ParameterizedMethod" id="1048" name="InvalidTimeout_FailsValidation" fullname="ICUSimulation.Tests.EditMode.ScenarioDataTests.InvalidTimeout_FailsValidation" classname="ICUSimulation.Tests.EditMode.ScenarioDataTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.002955" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1044" name="InvalidTimeout_FailsValidation(0.0f)" fullname="ICUSimulation.Tests.EditMode.ScenarioDataTests.InvalidTimeout_FailsValidation(0.0f)" methodname="InvalidTimeout_FailsValidation" classname="ICUSimulation.Tests.EditMode.ScenarioDataTests" runstate="Runnable" seed="1250596773" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.000759" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1045" name="InvalidTimeout_FailsValidation(-1.0f)" fullname="ICUSimulation.Tests.EditMode.ScenarioDataTests.InvalidTimeout_FailsValidation(-1.0f)" methodname="InvalidTimeout_FailsValidation" classname="ICUSimulation.Tests.EditMode.ScenarioDataTests" runstate="Runnable" seed="503104544" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.000515" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1046" name="InvalidTimeout_FailsValidation(float.PositiveInfinity)" fullname="ICUSimulation.Tests.EditMode.ScenarioDataTests.InvalidTimeout_FailsValidation(float.PositiveInfinity)" methodname="InvalidTimeout_FailsValidation" classname="ICUSimulation.Tests.EditMode.ScenarioDataTests" runstate="Runnable" seed="1242383894" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.000511" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1047" name="InvalidTimeout_FailsValidation(float.NaN)" fullname="ICUSimulation.Tests.EditMode.ScenarioDataTests.InvalidTimeout_FailsValidation(float.NaN)" methodname="InvalidTimeout_FailsValidation" classname="ICUSimulation.Tests.EditMode.ScenarioDataTests" runstate="Runnable" seed="1535450211" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.000572" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+              </test-suite>
+              <test-suite type="ParameterizedMethod" id="1055" name="MalformedBooleanRuleOperand_IsRejectedAtLoadAndSafeToEvaluate" fullname="ICUSimulation.Tests.EditMode.ScenarioDataTests.MalformedBooleanRuleOperand_IsRejectedAtLoadAndSafeToEvaluate" classname="ICUSimulation.Tests.EditMode.ScenarioDataTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.007440" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1051" name="MalformedBooleanRuleOperand_IsRejectedAtLoadAndSafeToEvaluate(&quot;\&quot;not-a-bool\&quot;&quot;)" fullname="ICUSimulation.Tests.EditMode.ScenarioDataTests.MalformedBooleanRuleOperand_IsRejectedAtLoadAndSafeToEvaluate(&quot;\&quot;not-a-bool\&quot;&quot;)" methodname="MalformedBooleanRuleOperand_IsRejectedAtLoadAndSafeToEvaluate" classname="ICUSimulation.Tests.EditMode.ScenarioDataTests" runstate="Runnable" seed="587666027" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.003717" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1052" name="MalformedBooleanRuleOperand_IsRejectedAtLoadAndSafeToEvaluate(&quot;{\&quot;nested\&quot;:true}&quot;)" fullname="ICUSimulation.Tests.EditMode.ScenarioDataTests.MalformedBooleanRuleOperand_IsRejectedAtLoadAndSafeToEvaluate(&quot;{\&quot;nested\&quot;:true}&quot;)" methodname="MalformedBooleanRuleOperand_IsRejectedAtLoadAndSafeToEvaluate" classname="ICUSimulation.Tests.EditMode.ScenarioDataTests" runstate="Runnable" seed="999575706" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.001783" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1053" name="MalformedBooleanRuleOperand_IsRejectedAtLoadAndSafeToEvaluate(&quot;[true]&quot;)" fullname="ICUSimulation.Tests.EditMode.ScenarioDataTests.MalformedBooleanRuleOperand_IsRejectedAtLoadAndSafeToEvaluate(&quot;[true]&quot;)" methodname="MalformedBooleanRuleOperand_IsRejectedAtLoadAndSafeToEvaluate" classname="ICUSimulation.Tests.EditMode.ScenarioDataTests" runstate="Runnable" seed="694489479" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.000819" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1054" name="MalformedBooleanRuleOperand_IsRejectedAtLoadAndSafeToEvaluate(&quot;null&quot;)" fullname="ICUSimulation.Tests.EditMode.ScenarioDataTests.MalformedBooleanRuleOperand_IsRejectedAtLoadAndSafeToEvaluate(&quot;null&quot;)" methodname="MalformedBooleanRuleOperand_IsRejectedAtLoadAndSafeToEvaluate" classname="ICUSimulation.Tests.EditMode.ScenarioDataTests" runstate="Runnable" seed="21493091" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.000712" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+              </test-suite>
+              <test-case id="1057" name="MalformedEffectOperands_AreRejectedBeforeAnActionCanSilentlyFail" fullname="ICUSimulation.Tests.EditMode.ScenarioDataTests.MalformedEffectOperands_AreRejectedBeforeAnActionCanSilentlyFail" methodname="MalformedEffectOperands_AreRejectedBeforeAnActionCanSilentlyFail" classname="ICUSimulation.Tests.EditMode.ScenarioDataTests" runstate="Runnable" seed="1975238166" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.001095" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1035" name="MalformedJson_FailsGracefully" fullname="ICUSimulation.Tests.EditMode.ScenarioDataTests.MalformedJson_FailsGracefully" methodname="MalformedJson_FailsGracefully" classname="ICUSimulation.Tests.EditMode.ScenarioDataTests" runstate="Runnable" seed="2118249558" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.001898" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1039" name="MissingMessageTransition_FailsBeforeRuntime" fullname="ICUSimulation.Tests.EditMode.ScenarioDataTests.MissingMessageTransition_FailsBeforeRuntime" methodname="MissingMessageTransition_FailsBeforeRuntime" classname="ICUSimulation.Tests.EditMode.ScenarioDataTests" runstate="Runnable" seed="733764961" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.000998" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-suite type="ParameterizedMethod" id="1038" name="MissingOrUnsupportedNodeType_FailsBeforeRuntime" fullname="ICUSimulation.Tests.EditMode.ScenarioDataTests.MissingOrUnsupportedNodeType_FailsBeforeRuntime" classname="ICUSimulation.Tests.EditMode.ScenarioDataTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.001988" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1036" name="MissingOrUnsupportedNodeType_FailsBeforeRuntime(null)" fullname="ICUSimulation.Tests.EditMode.ScenarioDataTests.MissingOrUnsupportedNodeType_FailsBeforeRuntime(null)" methodname="MissingOrUnsupportedNodeType_FailsBeforeRuntime" classname="ICUSimulation.Tests.EditMode.ScenarioDataTests" runstate="Runnable" seed="1407617951" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.000815" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1037" name="MissingOrUnsupportedNodeType_FailsBeforeRuntime(&quot;unsupported&quot;)" fullname="ICUSimulation.Tests.EditMode.ScenarioDataTests.MissingOrUnsupportedNodeType_FailsBeforeRuntime(&quot;unsupported&quot;)" methodname="MissingOrUnsupportedNodeType_FailsBeforeRuntime" classname="ICUSimulation.Tests.EditMode.ScenarioDataTests" runstate="Runnable" seed="1544085059" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.000696" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+              </test-suite>
+              <test-case id="1041" name="MultipleOptionsSharingHotspot_FailsAsAmbiguous" fullname="ICUSimulation.Tests.EditMode.ScenarioDataTests.MultipleOptionsSharingHotspot_FailsAsAmbiguous" methodname="MultipleOptionsSharingHotspot_FailsAsAmbiguous" classname="ICUSimulation.Tests.EditMode.ScenarioDataTests" runstate="Runnable" seed="228679115" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.000936" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1058" name="NumericRuleStrings_UseInvariantCulture" fullname="ICUSimulation.Tests.EditMode.ScenarioDataTests.NumericRuleStrings_UseInvariantCulture" methodname="NumericRuleStrings_UseInvariantCulture" classname="ICUSimulation.Tests.EditMode.ScenarioDataTests" runstate="Runnable" seed="1416678581" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.002729" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1050" name="ReassessmentScenario_IsDistinctValidAndSelectable" fullname="ICUSimulation.Tests.EditMode.ScenarioDataTests.ReassessmentScenario_IsDistinctValidAndSelectable" methodname="ReassessmentScenario_IsDistinctValidAndSelectable" classname="ICUSimulation.Tests.EditMode.ScenarioDataTests" runstate="Runnable" seed="1855898880" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.003797" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1032" name="ResetScenario_RecreatesOriginalState" fullname="ICUSimulation.Tests.EditMode.ScenarioDataTests.ResetScenario_RecreatesOriginalState" methodname="ResetScenario_RecreatesOriginalState" classname="ICUSimulation.Tests.EditMode.ScenarioDataTests" runstate="Runnable" seed="853210646" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.000757" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1033" name="RuntimeMutation_DoesNotMutateDefinition" fullname="ICUSimulation.Tests.EditMode.ScenarioDataTests.RuntimeMutation_DoesNotMutateDefinition" methodname="RuntimeMutation_DoesNotMutateDefinition" classname="ICUSimulation.Tests.EditMode.ScenarioDataTests" runstate="Runnable" seed="881417361" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.001018" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1029" name="UniversityScenario_AllEightNodeIdsAreDiscovered" fullname="ICUSimulation.Tests.EditMode.ScenarioDataTests.UniversityScenario_AllEightNodeIdsAreDiscovered" methodname="UniversityScenario_AllEightNodeIdsAreDiscovered" classname="ICUSimulation.Tests.EditMode.ScenarioDataTests" runstate="Runnable" seed="1015515984" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.002079" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1024" name="UniversityScenario_Deserializes" fullname="ICUSimulation.Tests.EditMode.ScenarioDataTests.UniversityScenario_Deserializes" methodname="UniversityScenario_Deserializes" classname="ICUSimulation.Tests.EditMode.ScenarioDataTests" runstate="Runnable" seed="1884981823" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.000757" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1028" name="UniversityScenario_InitialFlagsAreCorrect" fullname="ICUSimulation.Tests.EditMode.ScenarioDataTests.UniversityScenario_InitialFlagsAreCorrect" methodname="UniversityScenario_InitialFlagsAreCorrect" classname="ICUSimulation.Tests.EditMode.ScenarioDataTests" runstate="Runnable" seed="697637813" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.001790" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1027" name="UniversityScenario_InitialVitalsAreCorrect" fullname="ICUSimulation.Tests.EditMode.ScenarioDataTests.UniversityScenario_InitialVitalsAreCorrect" methodname="UniversityScenario_InitialVitalsAreCorrect" classname="ICUSimulation.Tests.EditMode.ScenarioDataTests" runstate="Runnable" seed="1786406426" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.001011" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1026" name="UniversityScenario_MetadataIsReadCorrectly" fullname="ICUSimulation.Tests.EditMode.ScenarioDataTests.UniversityScenario_MetadataIsReadCorrectly" methodname="UniversityScenario_MetadataIsReadCorrectly" classname="ICUSimulation.Tests.EditMode.ScenarioDataTests" runstate="Runnable" seed="430737497" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.000665" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1025" name="UniversityScenario_Validates" fullname="ICUSimulation.Tests.EditMode.ScenarioDataTests.UniversityScenario_Validates" methodname="UniversityScenario_Validates" classname="ICUSimulation.Tests.EditMode.ScenarioDataTests" runstate="Runnable" seed="2001183408" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.000673" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1042" name="UnknownGateFormOrField_FailsBeforeItCanBlockForever" fullname="ICUSimulation.Tests.EditMode.ScenarioDataTests.UnknownGateFormOrField_FailsBeforeItCanBlockForever" methodname="UnknownGateFormOrField_FailsBeforeItCanBlockForever" classname="ICUSimulation.Tests.EditMode.ScenarioDataTests" runstate="Runnable" seed="68642358" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.000964" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1056" name="UnknownRuleOperatorOrPath_IsRejectedWithClearValidationError" fullname="ICUSimulation.Tests.EditMode.ScenarioDataTests.UnknownRuleOperatorOrPath_IsRejectedWithClearValidationError" methodname="UnknownRuleOperatorOrPath_IsRejectedWithClearValidationError" classname="ICUSimulation.Tests.EditMode.ScenarioDataTests" runstate="Runnable" seed="303372541" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.001134" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1049" name="UnreachableEnd_FailsValidation" fullname="ICUSimulation.Tests.EditMode.ScenarioDataTests.UnreachableEnd_FailsValidation" methodname="UnreachableEnd_FailsValidation" classname="ICUSimulation.Tests.EditMode.ScenarioDataTests" runstate="Runnable" seed="487018657" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.000735" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1059" name="ScenarioPresentationTests" fullname="ICUSimulation.Tests.EditMode.ScenarioPresentationTests" classname="ICUSimulation.Tests.EditMode.ScenarioPresentationTests" runstate="Runnable" testcasecount="8" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.007690" total="8" passed="8" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1065" name="AlarmModel_BlinkingRedEffectActivatesAlarm" fullname="ICUSimulation.Tests.EditMode.ScenarioPresentationTests.AlarmModel_BlinkingRedEffectActivatesAlarm" methodname="AlarmModel_BlinkingRedEffectActivatesAlarm" classname="ICUSimulation.Tests.EditMode.ScenarioPresentationTests" runstate="Runnable" seed="42953972" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.000985" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1066" name="AlarmModel_DeactivationAndResetClearAlarmWhenStateIsNormal" fullname="ICUSimulation.Tests.EditMode.ScenarioPresentationTests.AlarmModel_DeactivationAndResetClearAlarmWhenStateIsNormal" methodname="AlarmModel_DeactivationAndResetClearAlarmWhenStateIsNormal" classname="ICUSimulation.Tests.EditMode.ScenarioPresentationTests" runstate="Runnable" seed="397536018" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.000814" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1067" name="AlarmModel_DuplicateEffectDoesNotProduceDuplicateStateChange" fullname="ICUSimulation.Tests.EditMode.ScenarioPresentationTests.AlarmModel_DuplicateEffectDoesNotProduceDuplicateStateChange" methodname="AlarmModel_DuplicateEffectDoesNotProduceDuplicateStateChange" classname="ICUSimulation.Tests.EditMode.ScenarioPresentationTests" runstate="Runnable" seed="2075354239" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.000802" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1064" name="Snapshot_MapsEscalationForCallButtonPresentation" fullname="ICUSimulation.Tests.EditMode.ScenarioPresentationTests.Snapshot_MapsEscalationForCallButtonPresentation" methodname="Snapshot_MapsEscalationForCallButtonPresentation" classname="ICUSimulation.Tests.EditMode.ScenarioPresentationTests" runstate="Runnable" seed="1152019413" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.000979" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1063" name="Snapshot_MapsOxygenAdjustmentForVentilatorPresentation" fullname="ICUSimulation.Tests.EditMode.ScenarioPresentationTests.Snapshot_MapsOxygenAdjustmentForVentilatorPresentation" methodname="Snapshot_MapsOxygenAdjustmentForVentilatorPresentation" classname="ICUSimulation.Tests.EditMode.ScenarioPresentationTests" runstate="Runnable" seed="1196271753" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.000733" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1060" name="Snapshot_ReceivesInitialVitalsFromScenarioState" fullname="ICUSimulation.Tests.EditMode.ScenarioPresentationTests.Snapshot_ReceivesInitialVitalsFromScenarioState" methodname="Snapshot_ReceivesInitialVitalsFromScenarioState" classname="ICUSimulation.Tests.EditMode.ScenarioPresentationTests" runstate="Runnable" seed="555048242" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.000845" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1061" name="Snapshot_ReflectsVitalChangesWithoutDuplicatingState" fullname="ICUSimulation.Tests.EditMode.ScenarioPresentationTests.Snapshot_ReflectsVitalChangesWithoutDuplicatingState" methodname="Snapshot_ReflectsVitalChangesWithoutDuplicatingState" classname="ICUSimulation.Tests.EditMode.ScenarioPresentationTests" runstate="Runnable" seed="1055135330" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.000699" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1062" name="Snapshot_ResetStateRestoresInitialPresentation" fullname="ICUSimulation.Tests.EditMode.ScenarioPresentationTests.Snapshot_ResetStateRestoresInitialPresentation" methodname="Snapshot_ResetStateRestoresInitialPresentation" classname="ICUSimulation.Tests.EditMode.ScenarioPresentationTests" runstate="Runnable" seed="1122982954" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.000753" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1068" name="ScenarioRuntimeTests" fullname="ICUSimulation.Tests.EditMode.ScenarioRuntimeTests" classname="ICUSimulation.Tests.EditMode.ScenarioRuntimeTests" runstate="Runnable" testcasecount="20" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.024150" total="20" passed="20" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1073" name="AssessOption_AppliesEffectsAndTransitions" fullname="ICUSimulation.Tests.EditMode.ScenarioRuntimeTests.AssessOption_AppliesEffectsAndTransitions" methodname="AssessOption_AppliesEffectsAndTransitions" classname="ICUSimulation.Tests.EditMode.ScenarioRuntimeTests" runstate="Runnable" seed="954478933" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.000992" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1087" name="CallButtonPath_ReachesSecondGateAndCanCompleteThroughDebugBypass" fullname="ICUSimulation.Tests.EditMode.ScenarioRuntimeTests.CallButtonPath_ReachesSecondGateAndCanCompleteThroughDebugBypass" methodname="CallButtonPath_ReachesSecondGateAndCanCompleteThroughDebugBypass" classname="ICUSimulation.Tests.EditMode.ScenarioRuntimeTests" runstate="Runnable" seed="1900821004" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.001168" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1074" name="CheckMonitorOption_AppliesScoreAndTransitions" fullname="ICUSimulation.Tests.EditMode.ScenarioRuntimeTests.CheckMonitorOption_AppliesScoreAndTransitions" methodname="CheckMonitorOption_AppliesScoreAndTransitions" classname="ICUSimulation.Tests.EditMode.ScenarioRuntimeTests" runstate="Runnable" seed="1919631160" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.000820" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1084" name="DebugBypassedGate_AppliesPassEffectsAndTransitions" fullname="ICUSimulation.Tests.EditMode.ScenarioRuntimeTests.DebugBypassedGate_AppliesPassEffectsAndTransitions" methodname="DebugBypassedGate_AppliesPassEffectsAndTransitions" classname="ICUSimulation.Tests.EditMode.ScenarioRuntimeTests" runstate="Runnable" seed="1197153354" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.001206" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1076" name="DoNothingOption_AppliesDeteriorationEffects" fullname="ICUSimulation.Tests.EditMode.ScenarioRuntimeTests.DoNothingOption_AppliesDeteriorationEffects" methodname="DoNothingOption_AppliesDeteriorationEffects" classname="ICUSimulation.Tests.EditMode.ScenarioRuntimeTests" runstate="Runnable" seed="1114905938" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.001094" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1086" name="EndNode_MarksScenarioComplete" fullname="ICUSimulation.Tests.EditMode.ScenarioRuntimeTests.EndNode_MarksScenarioComplete" methodname="EndNode_MarksScenarioComplete" classname="ICUSimulation.Tests.EditMode.ScenarioRuntimeTests" runstate="Runnable" seed="2129745953" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.000941" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1079" name="GlobalHypoxiaRule_EvaluatesFromJson" fullname="ICUSimulation.Tests.EditMode.ScenarioRuntimeTests.GlobalHypoxiaRule_EvaluatesFromJson" methodname="GlobalHypoxiaRule_EvaluatesFromJson" classname="ICUSimulation.Tests.EditMode.ScenarioRuntimeTests" runstate="Runnable" seed="1508041180" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.000750" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1080" name="GlobalRuleActivation_IsEdgeTriggeredAndDoesNotSpam" fullname="ICUSimulation.Tests.EditMode.ScenarioRuntimeTests.GlobalRuleActivation_IsEdgeTriggeredAndDoesNotSpam" methodname="GlobalRuleActivation_IsEdgeTriggeredAndDoesNotSpam" classname="ICUSimulation.Tests.EditMode.ScenarioRuntimeTests" runstate="Runnable" seed="1090708480" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.000929" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1081" name="GlobalRuleActivation_RearmsAfterConditionClears" fullname="ICUSimulation.Tests.EditMode.ScenarioRuntimeTests.GlobalRuleActivation_RearmsAfterConditionClears" methodname="GlobalRuleActivation_RearmsAfterConditionClears" classname="ICUSimulation.Tests.EditMode.ScenarioRuntimeTests" runstate="Runnable" seed="2133217153" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.001043" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1082" name="GlobalRuleDeactivation_EmitsInactiveUiVisualRequest" fullname="ICUSimulation.Tests.EditMode.ScenarioRuntimeTests.GlobalRuleDeactivation_EmitsInactiveUiVisualRequest" methodname="GlobalRuleDeactivation_EmitsInactiveUiVisualRequest" classname="ICUSimulation.Tests.EditMode.ScenarioRuntimeTests" runstate="Runnable" seed="1343905908" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.001769" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1075" name="IncreaseOxygenOption_AppliesAllEffects" fullname="ICUSimulation.Tests.EditMode.ScenarioRuntimeTests.IncreaseOxygenOption_AppliesAllEffects" methodname="IncreaseOxygenOption_AppliesAllEffects" classname="ICUSimulation.Tests.EditMode.ScenarioRuntimeTests" runstate="Runnable" seed="449319118" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.001008" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1071" name="MatchingHotspot_SelectsExpectedOption" fullname="ICUSimulation.Tests.EditMode.ScenarioRuntimeTests.MatchingHotspot_SelectsExpectedOption" methodname="MatchingHotspot_SelectsExpectedOption" classname="ICUSimulation.Tests.EditMode.ScenarioRuntimeTests" runstate="Runnable" seed="1385627533" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.001028" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1070" name="MessageContinue_TransitionsToDecision" fullname="ICUSimulation.Tests.EditMode.ScenarioRuntimeTests.MessageContinue_TransitionsToDecision" methodname="MessageContinue_TransitionsToDecision" classname="ICUSimulation.Tests.EditMode.ScenarioRuntimeTests" runstate="Runnable" seed="1107560852" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.001531" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1072" name="NonMatchingHotspot_DoesNotTransition" fullname="ICUSimulation.Tests.EditMode.ScenarioRuntimeTests.NonMatchingHotspot_DoesNotTransition" methodname="NonMatchingHotspot_DoesNotTransition" classname="ICUSimulation.Tests.EditMode.ScenarioRuntimeTests" runstate="Runnable" seed="1001452362" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.000866" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1085" name="SatisfiedGate_AutomaticallyPassesThroughResolver" fullname="ICUSimulation.Tests.EditMode.ScenarioRuntimeTests.SatisfiedGate_AutomaticallyPassesThroughResolver" methodname="SatisfiedGate_AutomaticallyPassesThroughResolver" classname="ICUSimulation.Tests.EditMode.ScenarioRuntimeTests" runstate="Runnable" seed="973009651" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.001403" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1069" name="Start_EntersFirstNodeAndRaisesEvent" fullname="ICUSimulation.Tests.EditMode.ScenarioRuntimeTests.Start_EntersFirstNodeAndRaisesEvent" methodname="Start_EntersFirstNodeAndRaisesEvent" classname="ICUSimulation.Tests.EditMode.ScenarioRuntimeTests" runstate="Runnable" seed="1399759572" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.001262" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1088" name="StopAndSessionReset_CancelProgressionAndRestoreInitialState" fullname="ICUSimulation.Tests.EditMode.ScenarioRuntimeTests.StopAndSessionReset_CancelProgressionAndRestoreInitialState" methodname="StopAndSessionReset_CancelProgressionAndRestoreInitialState" classname="ICUSimulation.Tests.EditMode.ScenarioRuntimeTests" runstate="Runnable" seed="1268169525" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.001009" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1077" name="Timeout_AppliesEffectsAndTransitionsOnce" fullname="ICUSimulation.Tests.EditMode.ScenarioRuntimeTests.Timeout_AppliesEffectsAndTransitionsOnce" methodname="Timeout_AppliesEffectsAndTransitionsOnce" classname="ICUSimulation.Tests.EditMode.ScenarioRuntimeTests" runstate="Runnable" seed="151214737" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.001318" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1078" name="Timeout_DoesNotFireAfterOptionSelected" fullname="ICUSimulation.Tests.EditMode.ScenarioRuntimeTests.Timeout_DoesNotFireAfterOptionSelected" methodname="Timeout_DoesNotFireAfterOptionSelected" classname="ICUSimulation.Tests.EditMode.ScenarioRuntimeTests" runstate="Runnable" seed="779008790" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.000841" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1083" name="UnsatisfiedGate_RemainsBlocked" fullname="ICUSimulation.Tests.EditMode.ScenarioRuntimeTests.UnsatisfiedGate_RemainsBlocked" methodname="UnsatisfiedGate_RemainsBlocked" classname="ICUSimulation.Tests.EditMode.ScenarioRuntimeTests" runstate="Runnable" seed="433343596" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.000936" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1089" name="ScenarioSessionLogTests" fullname="ICUSimulation.Tests.EditMode.ScenarioSessionLogTests" classname="ICUSimulation.Tests.EditMode.ScenarioSessionLogTests" runstate="Runnable" testcasecount="10" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.071838" total="10" passed="10" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1092" name="CompleteEscalationPath_ReportsSavedDocumentationAndRawScore" fullname="ICUSimulation.Tests.EditMode.ScenarioSessionLogTests.CompleteEscalationPath_ReportsSavedDocumentationAndRawScore" methodname="CompleteEscalationPath_ReportsSavedDocumentationAndRawScore" classname="ICUSimulation.Tests.EditMode.ScenarioSessionLogTests" runstate="Runnable" seed="331313573" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.008718" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1094" name="DebugBypass_IsVisibleAndDoesNotClaimSavedDocumentation" fullname="ICUSimulation.Tests.EditMode.ScenarioSessionLogTests.DebugBypass_IsVisibleAndDoesNotClaimSavedDocumentation" methodname="DebugBypass_IsVisibleAndDoesNotClaimSavedDocumentation" classname="ICUSimulation.Tests.EditMode.ScenarioSessionLogTests" runstate="Runnable" seed="631185408" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.002121" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1096" name="DocumentationLog_CopiesSubmittedValuesBeforeTheyAreEdited" fullname="ICUSimulation.Tests.EditMode.ScenarioSessionLogTests.DocumentationLog_CopiesSubmittedValuesBeforeTheyAreEdited" methodname="DocumentationLog_CopiesSubmittedValuesBeforeTheyAreEdited" classname="ICUSimulation.Tests.EditMode.ScenarioSessionLogTests" runstate="Runnable" seed="1663601339" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.000773" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1090" name="EventSnapshots_PreserveVitalsFlagsAndElapsedTimeAtEvent" fullname="ICUSimulation.Tests.EditMode.ScenarioSessionLogTests.EventSnapshots_PreserveVitalsFlagsAndElapsedTimeAtEvent" methodname="EventSnapshots_PreserveVitalsFlagsAndElapsedTimeAtEvent" classname="ICUSimulation.Tests.EditMode.ScenarioSessionLogTests" runstate="Runnable" seed="2122390086" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.011863" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1097" name="JsonExport_RoundTripsUnicodeAndDoesNotOverwritePreviousExport" fullname="ICUSimulation.Tests.EditMode.ScenarioSessionLogTests.JsonExport_RoundTripsUnicodeAndDoesNotOverwritePreviousExport" methodname="JsonExport_RoundTripsUnicodeAndDoesNotOverwritePreviousExport" classname="ICUSimulation.Tests.EditMode.ScenarioSessionLogTests" runstate="Runnable" seed="1973651495" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.041237" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1093" name="MonitorBranch_DistinguishesUnneededCommunicationFromMissingRequiredFields" fullname="ICUSimulation.Tests.EditMode.ScenarioSessionLogTests.MonitorBranch_DistinguishesUnneededCommunicationFromMissingRequiredFields" methodname="MonitorBranch_DistinguishesUnneededCommunicationFromMissingRequiredFields" classname="ICUSimulation.Tests.EditMode.ScenarioSessionLogTests" runstate="Runnable" seed="1718896096" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.002101" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1091" name="NonMatchingHotspot_IsLoggedWithoutInventingAChoice" fullname="ICUSimulation.Tests.EditMode.ScenarioSessionLogTests.NonMatchingHotspot_IsLoggedWithoutInventingAChoice" methodname="NonMatchingHotspot_IsLoggedWithoutInventingAChoice" classname="ICUSimulation.Tests.EditMode.ScenarioSessionLogTests" runstate="Runnable" seed="1936809920" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.000973" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1098" name="Stop_MarksIncompleteSessionAndNewStartUsesNewSessionId" fullname="ICUSimulation.Tests.EditMode.ScenarioSessionLogTests.Stop_MarksIncompleteSessionAndNewStartUsesNewSessionId" methodname="Stop_MarksIncompleteSessionAndNewStartUsesNewSessionId" classname="ICUSimulation.Tests.EditMode.ScenarioSessionLogTests" runstate="Runnable" seed="406676574" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.000986" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1099" name="Tick_IgnoresNonFiniteTimeToKeepExportsValid" fullname="ICUSimulation.Tests.EditMode.ScenarioSessionLogTests.Tick_IgnoresNonFiniteTimeToKeepExportsValid" methodname="Tick_IgnoresNonFiniteTimeToKeepExportsValid" classname="ICUSimulation.Tests.EditMode.ScenarioSessionLogTests" runstate="Runnable" seed="1155131262" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.000680" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1095" name="Timeout_IsRecordedOnceWithPenaltyAndReviewChecklist" fullname="ICUSimulation.Tests.EditMode.ScenarioSessionLogTests.Timeout_IsRecordedOnceWithPenaltyAndReviewChecklist" methodname="Timeout_IsRecordedOnceWithPenaltyAndReviewChecklist" classname="ICUSimulation.Tests.EditMode.ScenarioSessionLogTests" runstate="Runnable" seed="1064266432" result="Passed" start-time="2026-09-18 12:24:51Z" end-time="2026-09-18 12:24:51Z" duration="0.000936" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+                <output><![CDATA[Saving results to: C:/Users/kitli/AppData/LocalLow/DefaultCompany/ICU-XR-Simulation\TestResults.xml
+]]></output>
+              </test-case>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

@@ -32,6 +32,7 @@ namespace ICUSimulation.Scenarios
 
         public ScenarioDefinition Definition { get; }
         public ScenarioState State { get; }
+        public ScenarioSessionLog SessionLog { get; }
         public ScenarioNode CurrentNode { get; private set; }
         public bool IsRunning { get; private set; }
         public bool IsCompleted { get; private set; }
@@ -72,6 +73,7 @@ namespace ICUSimulation.Scenarios
             this.ruleEvaluator = ruleEvaluator ?? new RuleEvaluator();
             this.effectExecutor = effectExecutor ?? new EffectExecutor();
             SubscribeToServices();
+            SessionLog = new ScenarioSessionLog(this);
         }
 
         public bool Start()
@@ -94,6 +96,7 @@ namespace ICUSimulation.Scenarios
 
         public void Stop()
         {
+            SessionLog?.RecordStopped();
             CancelTimeout();
             IsRunning = false;
             IsCompleted = false;
@@ -103,7 +106,7 @@ namespace ICUSimulation.Scenarios
 
         public void Tick(float deltaTime)
         {
-            if (!IsRunning || deltaTime <= 0f)
+            if (!IsRunning || deltaTime <= 0f || float.IsNaN(deltaTime) || float.IsInfinity(deltaTime))
             {
                 return;
             }
@@ -138,6 +141,7 @@ namespace ICUSimulation.Scenarios
                 return false;
             }
 
+            SessionLog.Record("MESSAGE_CONTINUE", CurrentNode.Id);
             return TransitionTo(CurrentNode.NextNodeId);
         }
 
@@ -148,6 +152,7 @@ namespace ICUSimulation.Scenarios
                 return false;
             }
 
+            SessionLog.RecordInteraction(hotspotId);
             if (IsNodeType(CurrentNode, "gate"))
             {
                 if (string.Equals(

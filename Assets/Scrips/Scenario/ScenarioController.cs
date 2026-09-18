@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 namespace ICUSimulation.Scenarios
@@ -10,6 +11,7 @@ namespace ICUSimulation.Scenarios
         private ScenarioLoader loader;
         private List<ScenarioDescriptor> availableScenarios = new List<ScenarioDescriptor>();
         private ScenarioRunner runner;
+        private ScenarioSessionLog lastSessionLog;
 
         public event Action AvailableScenariosChanged;
         public event Action<ScenarioState> StateChanged;
@@ -34,6 +36,8 @@ namespace ICUSimulation.Scenarios
         public ScenarioDefinition ActiveDefinition => session.Definition;
         public ScenarioState CurrentState => session.State;
         public ScenarioRunner CurrentRunner => runner;
+        public ScenarioSessionLog SessionLog => runner?.SessionLog ?? lastSessionLog;
+        public bool IsPaused { get; set; }
         public string LastError { get; private set; }
         public Func<string, string, bool> GateRequirementResolver { get; set; }
 
@@ -45,7 +49,7 @@ namespace ICUSimulation.Scenarios
 
         private void Update()
         {
-            runner?.Tick(Time.deltaTime);
+            if (!IsPaused) runner?.Tick(Time.deltaTime);
         }
 
         public void RefreshScenarios()
@@ -89,7 +93,6 @@ namespace ICUSimulation.Scenarios
                 return false;
             }
 
-            StopRuntime();
             ScenarioLoadResult loaded = loader.LoadFromFile(descriptor.FilePath);
             if (!loaded.IsSuccess)
             {
@@ -97,7 +100,9 @@ namespace ICUSimulation.Scenarios
                 return false;
             }
 
+            StopRuntime();
             LastError = null;
+            lastSessionLog = null;
             ScenarioState state = session.LoadScenario(loaded.Definition);
             StateChanged?.Invoke(state);
             return true;
@@ -112,6 +117,7 @@ namespace ICUSimulation.Scenarios
             }
 
             StopRuntime();
+            IsPaused = false;
             ScenarioState freshState = session.ResetScenario();
             StateChanged?.Invoke(freshState);
 
@@ -134,6 +140,52 @@ namespace ICUSimulation.Scenarios
             return runner != null && runner.TryHandleHotspotInteraction(hotspotId);
         }
 
+        public void RecordInteraction(string hotspotId, string detail = null)
+        {
+            runner?.SessionLog.RecordInteraction(hotspotId, detail);
+        }
+
+        public void RecordDocumentation(string formId, IReadOnlyDictionary<string, string> values)
+        {
+            runner?.SessionLog.RecordDocumentation(formId, values);
+        }
+
+        public ScenarioDebriefReport BuildDebrief() => SessionLog?.BuildDebrief();
+
+        public bool TryExportSession(out string path, out string error)
+        {
+            path = null;
+            error = null;
+            if (SessionLog == null)
+            {
+                error = "Start a scenario before exporting its session.";
+                return false;
+            }
+
+            try
+            {
+                path = SessionLog.ExportJson(Path.Combine(Application.persistentDataPath, "SessionLogs"));
+                return true;
+            }
+            catch (Exception exception) when (exception is IOException || exception is UnauthorizedAccessException ||
+                exception is ArgumentException || exception is InvalidOperationException || exception is System.Security.SecurityException)
+            {
+                error = "The session could not be exported: " + exception.Message;
+                return false;
+            }
+        }
+
+        public void RequestFeedback(
+            string message,
+            ScenarioFeedbackStyle style,
+            string sourceId = null)
+        {
+            if (!string.IsNullOrWhiteSpace(message))
+            {
+                FeedbackRequested?.Invoke(new ScenarioFeedbackRequest(message, style, sourceId));
+            }
+        }
+
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
         public bool DebugBypassCurrentGate()
         {
@@ -152,12 +204,14 @@ namespace ICUSimulation.Scenarios
             }
 
             LastError = null;
+            lastSessionLog = null;
             StateChanged?.Invoke(state);
             return true;
         }
 
         public void StopRuntime()
         {
+            IsPaused = false;
             if (runner == null)
             {
                 return;
@@ -165,6 +219,7 @@ namespace ICUSimulation.Scenarios
 
             UnsubscribeFromRunner(runner);
             runner.Stop();
+            lastSessionLog = runner.SessionLog;
             runner = null;
         }
 

@@ -1,277 +1,86 @@
 using ICUSimulation.Scenarios;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
+/// <summary>Updates the authored compact training HUD; no visual objects are generated at runtime.</summary>
 public sealed class ScenarioHudController : MonoBehaviour
 {
     [SerializeField] private ScenarioController scenarioController;
-
+    public GameObject hudPanel;
+    public Text titleText;
+    public Text vitalsText;
+    public Text statusText;
+    public Text instructionText;
+    public Text timeoutText;
+    public Button continueButton;
     private GateEvaluationResult currentGateEvaluation;
-    private GUIStyle titleStyle;
-    private GUIStyle headingStyle;
-    private GUIStyle bodyStyle;
-    private GUIStyle statusStyle;
 
     private void Awake()
     {
-        if (scenarioController == null)
-        {
-            scenarioController = GetComponent<ScenarioController>();
-        }
-
-        if (scenarioController == null)
-        {
-            scenarioController = FindAnyObjectByType<ScenarioController>();
-        }
-
+        if (scenarioController == null) scenarioController = FindAnyObjectByType<ScenarioController>();
         if (scenarioController != null)
         {
             scenarioController.NodeEntered += HandleNodeEntered;
             scenarioController.GateBlocked += HandleGateBlocked;
             scenarioController.GatePassed += HandleGatePassed;
         }
+        if (continueButton != null) continueButton.onClick.AddListener(ContinueMessage);
     }
 
     private void Update()
     {
-        if (scenarioController == null || Keyboard.current == null)
-        {
-            return;
-        }
-
-        if (UIFlowController.Instance != null && UIFlowController.Instance.HasOpenModal)
-        {
-            return;
-        }
-
-        if (Keyboard.current.f4Key.wasPressedThisFrame && scenarioController.ActiveDefinition != null)
-        {
-            scenarioController.StartScenario();
-            return;
-        }
-
+        bool visible = scenarioController != null && scenarioController.ActiveDefinition != null &&
+            (UIFlowController.Instance == null || !UIFlowController.Instance.HasOpenModal);
+        if (hudPanel != null) hudPanel.SetActive(visible);
+        if (!visible || titleText == null) return;
         ScenarioRunner runner = scenarioController.CurrentRunner;
-        if (runner == null || !runner.IsRunning)
-        {
-            return;
-        }
-
-        if ((Keyboard.current.enterKey.wasPressedThisFrame || Keyboard.current.cKey.wasPressedThisFrame) &&
-            IsNodeType(runner.CurrentNode, "message"))
-        {
-            scenarioController.ContinueCurrentMessage();
-        }
-
-#if UNITY_EDITOR || DEVELOPMENT_BUILD
-        if (Keyboard.current.f8Key.wasPressedThisFrame && runner.IsWaitingAtGate)
-        {
-            scenarioController.DebugBypassCurrentGate();
-        }
-#endif
-    }
-
-    private void OnGUI()
-    {
-        if (scenarioController == null || scenarioController.ActiveDefinition == null)
-        {
-            return;
-        }
-
-        if (UIFlowController.Instance != null && UIFlowController.Instance.HasOpenModal)
-        {
-            return;
-        }
-
-        EnsureStyles();
-
-        const float width = 520f;
-        float height = Mathf.Min(650f, Screen.height - 32f);
-        Rect outer = new Rect(16f, 16f, width, height);
-        GUI.Box(outer, GUIContent.none);
-
-        GUILayout.BeginArea(new Rect(outer.x + 16f, outer.y + 12f, outer.width - 32f, outer.height - 24f));
-        GUILayout.Label(scenarioController.ActiveDefinition.Metadata.Title, titleStyle);
-
         ScenarioState state = scenarioController.CurrentState;
-        ScenarioRunner runner = scenarioController.CurrentRunner;
-        GUILayout.Label(GetStatusText(runner), statusStyle);
-
-        if (state != null)
-        {
-            GUILayout.Label(
-                $"Score {state.CurrentScore}   HR {state.HeartRate}   SpO2 {state.OxygenSaturation}%   " +
-                $"RR {state.RespiratoryRate}   BP {state.BloodPressure}   Temp {state.Temperature:0.0} °C",
-                bodyStyle);
-        }
-
-        GUILayout.Space(8f);
-
+        titleText.text = scenarioController.ActiveDefinition.Metadata.Title;
+        vitalsText.text = state == null ? string.Empty : $"HR {state.HeartRate}   SpO2 {state.OxygenSaturation}%   RR {state.RespiratoryRate}\nBP {state.BloodPressure}   Temp {state.Temperature:0.0} °C   Score {state.CurrentScore}";
+        bool message = IsNodeType(runner?.CurrentNode, "message");
+        continueButton.gameObject.SetActive(message);
+        timeoutText.text = runner?.IsTimeoutActive == true ? $"DECISION TIME  {runner.TimeoutRemaining:0.0}s" : string.Empty;
         if (runner == null)
         {
-            GUILayout.Label("The scenario is loaded but has not started.", bodyStyle);
-            if (GUILayout.Button("Start Scenario (F4)", GUILayout.Height(36f)))
-            {
-                scenarioController.StartScenario();
-            }
-
-            GUILayout.EndArea();
+            statusText.text = "READY TO START";
+            instructionText.text = "Open Scenarios (F2) and select Start training.";
             return;
         }
-
-        ScenarioNode node = runner.CurrentNode;
-        if (node != null)
+        statusText.text = runner.IsCompleted ? "TRAINING COMPLETE" : runner.IsWaitingAtGate ? "DOCUMENTATION REQUIRED" : "TRAINING IN PROGRESS";
+        string instructions = runner.CurrentNode?.Text ?? string.Empty;
+        if (IsNodeType(runner.CurrentNode, "decision"))
         {
-            GUILayout.Label($"Node: {node.Id}", headingStyle);
-            GUILayout.Label(node.Text ?? string.Empty, bodyStyle);
-        }
-
-        if (runner.IsCompleted)
-        {
-            GUILayout.Space(10f);
-            GUILayout.Label("SCENARIO COMPLETE", titleStyle);
-            GUILayout.Label($"Final score: {state?.CurrentScore ?? 0}", headingStyle);
-            GUILayout.Label("Press F4 to start a fresh run. Full debrief is deferred to a later phase.", bodyStyle);
-            GUILayout.EndArea();
-            return;
-        }
-
-        if (runner.IsTimeoutActive)
-        {
-            GUILayout.Label($"Time remaining: {runner.TimeoutRemaining:0.0}s", statusStyle);
-        }
-
-        if (IsNodeType(node, "message"))
-        {
-            GUILayout.Space(10f);
-            if (GUILayout.Button("Continue (Enter or C)", GUILayout.Height(36f)))
-            {
-                scenarioController.ContinueCurrentMessage();
-            }
-        }
-        else if (IsNodeType(node, "decision"))
-        {
-            GUILayout.Space(8f);
-            GUILayout.Label("Choose an action by interacting with the matching ICU hotspot:", headingStyle);
+            instructions += "\n\nAim at the matching equipment and press E:\n";
             foreach (ScenarioOption option in runner.CurrentOptions)
-            {
-                if (option != null)
-                {
-                    GUILayout.Label($"• {option.Label}", bodyStyle);
-                }
-            }
+                if (option != null) instructions += "\n• " + option.Label;
         }
-        else if (IsNodeType(node, "gate"))
+        else if (runner.IsWaitingAtGate)
         {
-            GUILayout.Space(8f);
-            GUILayout.Label("Documentation gate blocked", statusStyle);
-            DrawGateRequirements(node);
-
-#if UNITY_EDITOR || DEVELOPMENT_BUILD
-            GUILayout.Space(8f);
-            if (GUILayout.Button("DEBUG ONLY — Bypass Gate (F8)", GUILayout.Height(36f)))
-            {
-                scenarioController.DebugBypassCurrentGate();
-            }
-#endif
+            instructions += "\n\nUse the EHR Terminal. Save each required form.";
+            if (currentGateEvaluation != null)
+                foreach (string requirement in currentGateEvaluation.MissingRequirements)
+                    instructions += "\n• " + FormatRequirement(requirement);
         }
-
-        GUILayout.EndArea();
+        else if (runner.IsCompleted) instructions += "\n\nOpen Scenarios (F2) → Review session to see your debrief.";
+        instructionText.text = instructions;
+        if (message && Keyboard.current != null && (Keyboard.current.enterKey.wasPressedThisFrame || Keyboard.current.cKey.wasPressedThisFrame)) ContinueMessage();
     }
 
-    private void DrawGateRequirements(ScenarioNode node)
+    public void ContinueMessage() => scenarioController.ContinueCurrentMessage();
+    private string FormatRequirement(string requirement)
     {
-        GateRequirements requirements = node.GateRequirements;
-        if (!string.IsNullOrWhiteSpace(requirements?.TargetHotspot))
-        {
-            GUILayout.Label($"Required hotspot: {requirements.TargetHotspot}", bodyStyle);
-        }
-
-        if (currentGateEvaluation?.MissingRequirements == null)
-        {
-            return;
-        }
-
-        foreach (string requirement in currentGateEvaluation.MissingRequirements)
-        {
-            GUILayout.Label($"• Missing: {requirement}", bodyStyle);
-        }
+        int split = requirement.IndexOf('.');
+        return split < 1 ? EhrDisplayNames.GetFieldLabel(requirement) :
+            EhrDisplayNames.GetFormTitle(scenarioController.ActiveDefinition, requirement.Substring(0, split)) + ": " + EhrDisplayNames.GetFieldLabel(requirement.Substring(split + 1));
     }
-
-    private void HandleNodeEntered(ScenarioNode node)
-    {
-        currentGateEvaluation = null;
-    }
-
-    private void HandleGateBlocked(ScenarioGateEvent gateEvent)
-    {
-        currentGateEvaluation = gateEvent?.Evaluation;
-    }
-
-    private void HandleGatePassed(ScenarioGateEvent gateEvent)
-    {
-        currentGateEvaluation = null;
-    }
-
-    private string GetStatusText(ScenarioRunner runner)
-    {
-        if (runner == null)
-        {
-            return "Status: Loaded — not started";
-        }
-
-        if (runner.IsCompleted)
-        {
-            return "Status: Complete";
-        }
-
-        return runner.IsRunning ? "Status: Running" : "Status: Stopped";
-    }
-
-    private void EnsureStyles()
-    {
-        if (titleStyle != null)
-        {
-            return;
-        }
-
-        titleStyle = new GUIStyle(GUI.skin.label)
-        {
-            fontSize = 20,
-            fontStyle = FontStyle.Bold,
-            wordWrap = true
-        };
-        headingStyle = new GUIStyle(GUI.skin.label)
-        {
-            fontSize = 16,
-            fontStyle = FontStyle.Bold,
-            wordWrap = true
-        };
-        bodyStyle = new GUIStyle(GUI.skin.label)
-        {
-            fontSize = 15,
-            wordWrap = true
-        };
-        statusStyle = new GUIStyle(GUI.skin.label)
-        {
-            fontSize = 15,
-            fontStyle = FontStyle.Bold,
-            normal = { textColor = new Color(0.35f, 0.85f, 1f) },
-            wordWrap = true
-        };
-    }
-
-    private static bool IsNodeType(ScenarioNode node, string expectedType)
-    {
-        return node != null && string.Equals(node.Type, expectedType, System.StringComparison.OrdinalIgnoreCase);
-    }
-
+    private void HandleNodeEntered(ScenarioNode node) => currentGateEvaluation = null;
+    private void HandleGateBlocked(ScenarioGateEvent e) => currentGateEvaluation = e?.Evaluation;
+    private void HandleGatePassed(ScenarioGateEvent e) => currentGateEvaluation = null;
+    private static bool IsNodeType(ScenarioNode node, string type) => node != null && string.Equals(node.Type, type, System.StringComparison.OrdinalIgnoreCase);
     private void OnDestroy()
     {
-        if (scenarioController == null)
-        {
-            return;
-        }
-
+        if (scenarioController == null) return;
         scenarioController.NodeEntered -= HandleNodeEntered;
         scenarioController.GateBlocked -= HandleGateBlocked;
         scenarioController.GatePassed -= HandleGatePassed;

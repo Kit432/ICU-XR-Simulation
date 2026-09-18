@@ -1,0 +1,10 @@
+Unity 6000.4.8f1
+Result: Succeeded
+Errors: 0
+Warnings: 0
+Size bytes: 178761563
+Duration: 00:00:07.8721798
+Built UTC: 2026-09-18T13:27:18.8887748Z
+Scene: Assets/Scenes/ICUTraining.unity
+Output: C:/Users/kitli/Desktop/Projects/Unity/ICU-XR-Simulation/output/ICU_Submission/Application/ICU-XR-Simulation.exe
+Development build: false

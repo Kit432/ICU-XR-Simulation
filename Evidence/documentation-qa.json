@@ -1,0 +1,80 @@
+{
+  "documents": [
+    {
+      "manual": "user",
+      "pages": 8,
+      "visually_reviewed_pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "manual": "technical_hta",
+      "pages": 8,
+      "visually_reviewed_pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    }
+  ],
+  "layout_review": "passed - no clipping, overflow, broken glyphs, blank pages or misplaced captions found",
+  "accessibility_audits": {
+    "user": {
+      "high": 0,
+      "medium": 0,
+      "low": 0
+    },
+    "technical_hta": {
+      "high": 0,
+      "medium": 0,
+      "low": 0
+    }
+  },
+  "evidence": {
+    "editmode_passed": 91,
+    "editmode_total": 91,
+    "runtime_passed": 38,
+    "runtime_capture_utc": "2026-09-18T13:06:48Z"
+  },
+  "render_method": "Native Microsoft Word PDF export and canonical render_docx.py rasterization with bundled Poppler; no LibreOffice bundle available on this Windows runtime.",
+  "files": [
+    {
+      "file": "output/documents/ICU_Technical_Manual_HTA_EL.docx",
+      "bytes": 50108,
+      "sha256": "8817c2702fe545a262ac5a77da6973e0bfe0e3c0f6ae6aaa26fc42a78337c27b",
+      "images": 0,
+      "language": "el-GR"
+    },
+    {
+      "file": "output/documents/ICU_Technical_Manual_HTA_EL.pdf",
+      "bytes": 212410,
+      "sha256": "63fe70d689528e26af3ff98b5006a3d3139fb5318a5deb39d37c7a3e2dfefd7f",
+      "pages": 8
+    },
+    {
+      "file": "output/documents/ICU_User_Manual_EL.docx",
+      "bytes": 7278736,
+      "sha256": "6ca8f68d989e9c8ea60aae53685cd7772720c7d746d20c8a04c43a903c039498",
+      "images": 6,
+      "language": "el-GR"
+    },
+    {
+      "file": "output/documents/ICU_User_Manual_EL.pdf",
+      "bytes": 1131632,
+      "sha256": "aa151f73324292f690840befb48110f4d92f3f5212249afa3822d6eaa8167402",
+      "pages": 8
+    }
+  ]
+}

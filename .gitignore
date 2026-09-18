@@ -17,6 +17,8 @@
 /[Bb]uild/
 /[Bb]uilds/
 /[Ll]ogs/
+/tmp/
+/output/
 /[Uu]ser[Ss]ettings/
 *.log
 

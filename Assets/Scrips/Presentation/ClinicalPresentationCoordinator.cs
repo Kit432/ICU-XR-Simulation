@@ -8,7 +8,6 @@ public sealed class ClinicalPresentationCoordinator : MonoBehaviour
 {
     [SerializeField] private ScenarioController scenarioController;
 
-    private Font runtimeFont;
     private bool configured;
 
     private void Awake()
@@ -36,7 +35,6 @@ public sealed class ClinicalPresentationCoordinator : MonoBehaviour
             return;
         }
 
-        runtimeFont = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
         Dictionary<string, Hotspot> hotspots = FindHotspots();
         GameObject monitorPanel = FindDescendant("MonitorPanel");
         GameObject bedPanel = FindDescendant("BedPanel");
@@ -70,7 +68,8 @@ public sealed class ClinicalPresentationCoordinator : MonoBehaviour
 
         if (panel == null)
         {
-            panel = CreateVentilatorPanel(out settingText, out oxygenText, out interventionText);
+            Debug.LogError("Assign the authored VentilatorPanel prefab to the scene.", this);
+            return;
         }
         else
         {
@@ -94,71 +93,6 @@ public sealed class ClinicalPresentationCoordinator : MonoBehaviour
 
         CallButtonView view = EnsureComponent<CallButtonView>();
         view.Initialize(scenarioController, callButton.transform);
-    }
-
-    private GameObject CreateVentilatorPanel(
-        out Text settingText,
-        out Text oxygenText,
-        out Text interventionText)
-    {
-        GameObject panel = new GameObject(
-            "VentilatorPanel_Runtime",
-            typeof(RectTransform),
-            typeof(CanvasRenderer),
-            typeof(Image));
-        panel.transform.SetParent(transform, false);
-        RectTransform panelRect = panel.GetComponent<RectTransform>();
-        panelRect.anchorMin = new Vector2(0.5f, 0.5f);
-        panelRect.anchorMax = new Vector2(0.5f, 0.5f);
-        panelRect.pivot = new Vector2(0.5f, 0.5f);
-        panelRect.sizeDelta = new Vector2(650f, 440f);
-        panelRect.anchoredPosition = Vector2.zero;
-        panel.GetComponent<Image>().color = new Color(0.025f, 0.075f, 0.10f, 0.98f);
-
-        Text title = CreateText(panel.transform, "Title", "VENTILATOR", 30, FontStyle.Bold, new Vector2(0f, 145f));
-        title.color = new Color(0.30f, 0.90f, 1f);
-        settingText = CreateText(panel.transform, "SettingText", string.Empty, 22, FontStyle.Normal, new Vector2(0f, 70f));
-        oxygenText = CreateText(panel.transform, "VentilatorSpO2Text", string.Empty, 28, FontStyle.Bold, new Vector2(0f, 5f));
-        interventionText = CreateText(panel.transform, "InterventionText", string.Empty, 23, FontStyle.Bold, new Vector2(0f, -60f));
-        Text note = CreateText(
-            panel.transform,
-            "ClinicalNote",
-            "Presentation reflects scenario state; this is not a ventilator control model.",
-            17,
-            FontStyle.Italic,
-            new Vector2(0f, -125f));
-        note.color = new Color(0.75f, 0.82f, 0.86f);
-        Text close = CreateText(panel.transform, "CloseMessage", "Press Esc to close", 16, FontStyle.Normal, new Vector2(0f, -180f));
-        close.color = new Color(0.65f, 0.72f, 0.76f);
-        panel.SetActive(false);
-        return panel;
-    }
-
-    private Text CreateText(
-        Transform parent,
-        string name,
-        string content,
-        int fontSize,
-        FontStyle fontStyle,
-        Vector2 position)
-    {
-        GameObject textObject = new GameObject(name, typeof(RectTransform), typeof(CanvasRenderer), typeof(Text));
-        textObject.transform.SetParent(parent, false);
-        RectTransform rect = textObject.GetComponent<RectTransform>();
-        rect.anchorMin = new Vector2(0.5f, 0.5f);
-        rect.anchorMax = new Vector2(0.5f, 0.5f);
-        rect.pivot = new Vector2(0.5f, 0.5f);
-        rect.anchoredPosition = position;
-        rect.sizeDelta = new Vector2(590f, 52f);
-        Text text = textObject.GetComponent<Text>();
-        text.font = runtimeFont;
-        text.fontSize = fontSize;
-        text.fontStyle = fontStyle;
-        text.alignment = TextAnchor.MiddleCenter;
-        text.color = Color.white;
-        text.text = content;
-        text.raycastTarget = false;
-        return text;
     }
 
     private Dictionary<string, Hotspot> FindHotspots()
@@ -205,6 +139,6 @@ public sealed class ClinicalPresentationCoordinator : MonoBehaviour
     private T EnsureComponent<T>() where T : Component
     {
         T component = GetComponent<T>();
-        return component != null ? component : gameObject.AddComponent<T>();
+        return component;
     }
 }
